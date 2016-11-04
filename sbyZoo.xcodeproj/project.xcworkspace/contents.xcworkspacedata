@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:sbyZoo.xcodeproj">
+      location = "self:/Users/RonBasumallik/Documents/xcodeWorkspace/sbyZoo/sbyZoo.xcodeproj">
    </FileRef>
 </Workspace>

@@ -7,21 +7,46 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CC1375671DCD0190008493E7 /* qrViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC1375661DCD0190008493E7 /* qrViewController.swift */; };
+		CC22AE2F1DB6F759009E11B8 /* rootTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC22AE2E1DB6F759009E11B8 /* rootTabBarController.swift */; };
+		CC22AE311DB6F835009E11B8 /* webController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC22AE301DB6F835009E11B8 /* webController.swift */; };
+		CC3BBC611DB9146A0056A775 /* Twiddlestix.otf in Resources */ = {isa = PBXBuildFile; fileRef = CC3BBC601DB9146A0056A775 /* Twiddlestix.otf */; };
+		CC4FC9731DB5AA2800152AC2 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CC4FC9721DB5AA2800152AC2 /* GoogleService-Info.plist */; };
+		CC58CE4D1DCA755E003EF551 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CC58CE4B1DCA755E003EF551 /* Model.xcdatamodeld */; };
+		CC7FE27D1DB7E82500CDE94B /* animal.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC7FE27C1DB7E82500CDE94B /* animal.swift */; };
+		CC7FE2811DB8148E00CDE94B /* customAnimalCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC7FE2801DB8148E00CDE94B /* customAnimalCell.swift */; };
 		CC8C90DA1DB5A9E300DAA3B5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC8C90D91DB5A9E300DAA3B5 /* AppDelegate.swift */; };
-		CC8C90DC1DB5A9E300DAA3B5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC8C90DB1DB5A9E300DAA3B5 /* ViewController.swift */; };
 		CC8C90DF1DB5A9E300DAA3B5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CC8C90DD1DB5A9E300DAA3B5 /* Main.storyboard */; };
 		CC8C90E11DB5A9E300DAA3B5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CC8C90E01DB5A9E300DAA3B5 /* Assets.xcassets */; };
 		CC8C90E41DB5A9E300DAA3B5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CC8C90E21DB5A9E300DAA3B5 /* LaunchScreen.storyboard */; };
+		CC99C7F31DCBDB15005BC0A5 /* coreDataOperations.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC99C7F21DCBDB15005BC0A5 /* coreDataOperations.swift */; };
+		CCD7DF211DB7063200BB089D /* animalNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD7DF201DB7063200BB089D /* animalNavigationController.swift */; };
+		CCD7DF251DB7C7EA00BB089D /* animalTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD7DF241DB7C7EA00BB089D /* animalTableViewController.swift */; };
+		CCD7DF271DB7C8BB00BB089D /* animalInformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD7DF261DB7C8BB00BB089D /* animalInformationViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		999600B8F127FDD7977AA2C6 /* Pods-sbyZoo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-sbyZoo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-sbyZoo/Pods-sbyZoo.debug.xcconfig"; sourceTree = "<group>"; };
+		B3473B8A5D86907BC3F1E75E /* Pods-sbyZoo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-sbyZoo.release.xcconfig"; path = "Pods/Target Support Files/Pods-sbyZoo/Pods-sbyZoo.release.xcconfig"; sourceTree = "<group>"; };
+		CC1375661DCD0190008493E7 /* qrViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = qrViewController.swift; sourceTree = "<group>"; };
+		CC22AE2C1DB6BD1C009E11B8 /* sbyZoo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = sbyZoo.entitlements; sourceTree = "<group>"; };
+		CC22AE2E1DB6F759009E11B8 /* rootTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = rootTabBarController.swift; sourceTree = "<group>"; };
+		CC22AE301DB6F835009E11B8 /* webController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = webController.swift; sourceTree = "<group>"; };
+		CC3BBC601DB9146A0056A775 /* Twiddlestix.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Twiddlestix.otf; path = font/Twiddlestix.otf; sourceTree = "<group>"; };
+		CC4FC9721DB5AA2800152AC2 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		CC58CE4C1DCA755E003EF551 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		CC7FE27C1DB7E82500CDE94B /* animal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = animal.swift; sourceTree = "<group>"; };
+		CC7FE2801DB8148E00CDE94B /* customAnimalCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = customAnimalCell.swift; sourceTree = "<group>"; };
 		CC8C90D61DB5A9E300DAA3B5 /* sbyZoo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = sbyZoo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CC8C90D91DB5A9E300DAA3B5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		CC8C90DB1DB5A9E300DAA3B5 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		CC8C90DE1DB5A9E300DAA3B5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		CC8C90E01DB5A9E300DAA3B5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CC8C90E31DB5A9E300DAA3B5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CC8C90E51DB5A9E300DAA3B5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CC99C7F21DCBDB15005BC0A5 /* coreDataOperations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = coreDataOperations.swift; sourceTree = "<group>"; };
+		CCD7DF201DB7063200BB089D /* animalNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = animalNavigationController.swift; sourceTree = "<group>"; };
+		CCD7DF241DB7C7EA00BB089D /* animalTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = animalTableViewController.swift; sourceTree = "<group>"; };
+		CCD7DF261DB7C8BB00BB089D /* animalInformationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = animalInformationViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,11 +60,42 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		31EF4BE371E74C1DC8364859 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		50078D984E9221942D3D3577 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				999600B8F127FDD7977AA2C6 /* Pods-sbyZoo.debug.xcconfig */,
+				B3473B8A5D86907BC3F1E75E /* Pods-sbyZoo.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		CC22AE2D1DB6F737009E11B8 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				CC22AE2E1DB6F759009E11B8 /* rootTabBarController.swift */,
+				CC22AE301DB6F835009E11B8 /* webController.swift */,
+				CCD7DF201DB7063200BB089D /* animalNavigationController.swift */,
+				CCD7DF241DB7C7EA00BB089D /* animalTableViewController.swift */,
+				CCD7DF261DB7C8BB00BB089D /* animalInformationViewController.swift */,
+				CC1375661DCD0190008493E7 /* qrViewController.swift */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
 		CC8C90CD1DB5A9E200DAA3B5 = {
 			isa = PBXGroup;
 			children = (
 				CC8C90D81DB5A9E300DAA3B5 /* sbyZoo */,
 				CC8C90D71DB5A9E300DAA3B5 /* Products */,
+				50078D984E9221942D3D3577 /* Pods */,
+				31EF4BE371E74C1DC8364859 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -54,14 +110,29 @@
 		CC8C90D81DB5A9E300DAA3B5 /* sbyZoo */ = {
 			isa = PBXGroup;
 			children = (
+				CCD7DF281DB7CCC900BB089D /* Models */,
+				CC22AE2D1DB6F737009E11B8 /* Controllers */,
+				CC22AE2C1DB6BD1C009E11B8 /* sbyZoo.entitlements */,
+				CC4FC9721DB5AA2800152AC2 /* GoogleService-Info.plist */,
 				CC8C90D91DB5A9E300DAA3B5 /* AppDelegate.swift */,
-				CC8C90DB1DB5A9E300DAA3B5 /* ViewController.swift */,
+				CC58CE4B1DCA755E003EF551 /* Model.xcdatamodeld */,
 				CC8C90DD1DB5A9E300DAA3B5 /* Main.storyboard */,
 				CC8C90E01DB5A9E300DAA3B5 /* Assets.xcassets */,
+				CC3BBC601DB9146A0056A775 /* Twiddlestix.otf */,
 				CC8C90E21DB5A9E300DAA3B5 /* LaunchScreen.storyboard */,
 				CC8C90E51DB5A9E300DAA3B5 /* Info.plist */,
 			);
 			path = sbyZoo;
+			sourceTree = "<group>";
+		};
+		CCD7DF281DB7CCC900BB089D /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				CC7FE27C1DB7E82500CDE94B /* animal.swift */,
+				CC7FE2801DB8148E00CDE94B /* customAnimalCell.swift */,
+				CC99C7F21DCBDB15005BC0A5 /* coreDataOperations.swift */,
+			);
+			name = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -71,9 +142,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = CC8C90E81DB5A9E300DAA3B5 /* Build configuration list for PBXNativeTarget "sbyZoo" */;
 			buildPhases = (
+				F2DE60E96DABBFE9C2ACD3EB /* [CP] Check Pods Manifest.lock */,
 				CC8C90D21DB5A9E200DAA3B5 /* Sources */,
 				CC8C90D31DB5A9E200DAA3B5 /* Frameworks */,
 				CC8C90D41DB5A9E200DAA3B5 /* Resources */,
+				CE8491381C20D4156C586490 /* [CP] Embed Pods Frameworks */,
+				90839733E14B06DE6D1C162E /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -96,7 +170,13 @@
 				TargetAttributes = {
 					CC8C90D51DB5A9E200DAA3B5 = {
 						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = NGGRAD9ZX4;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Keychain = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -124,6 +204,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				CC8C90E41DB5A9E300DAA3B5 /* LaunchScreen.storyboard in Resources */,
+				CC4FC9731DB5AA2800152AC2 /* GoogleService-Info.plist in Resources */,
+				CC3BBC611DB9146A0056A775 /* Twiddlestix.otf in Resources */,
 				CC8C90E11DB5A9E300DAA3B5 /* Assets.xcassets in Resources */,
 				CC8C90DF1DB5A9E300DAA3B5 /* Main.storyboard in Resources */,
 			);
@@ -131,13 +213,70 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		90839733E14B06DE6D1C162E /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-sbyZoo/Pods-sbyZoo-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CE8491381C20D4156C586490 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-sbyZoo/Pods-sbyZoo-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F2DE60E96DABBFE9C2ACD3EB /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		CC8C90D21DB5A9E200DAA3B5 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CC8C90DC1DB5A9E300DAA3B5 /* ViewController.swift in Sources */,
+				CC22AE311DB6F835009E11B8 /* webController.swift in Sources */,
+				CC7FE2811DB8148E00CDE94B /* customAnimalCell.swift in Sources */,
 				CC8C90DA1DB5A9E300DAA3B5 /* AppDelegate.swift in Sources */,
+				CC99C7F31DCBDB15005BC0A5 /* coreDataOperations.swift in Sources */,
+				CCD7DF251DB7C7EA00BB089D /* animalTableViewController.swift in Sources */,
+				CCD7DF211DB7063200BB089D /* animalNavigationController.swift in Sources */,
+				CC22AE2F1DB6F759009E11B8 /* rootTabBarController.swift in Sources */,
+				CCD7DF271DB7C8BB00BB089D /* animalInformationViewController.swift in Sources */,
+				CC58CE4D1DCA755E003EF551 /* Model.xcdatamodeld in Sources */,
+				CC7FE27D1DB7E82500CDE94B /* animal.swift in Sources */,
+				CC1375671DCD0190008493E7 /* qrViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -256,11 +395,15 @@
 		};
 		CC8C90E91DB5A9E300DAA3B5 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 999600B8F127FDD7977AA2C6 /* Pods-sbyZoo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = sbyZoo/sbyZoo.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				DEVELOPMENT_TEAM = NGGRAD9ZX4;
 				INFOPLIST_FILE = sbyZoo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.BenRon.sbyZoo;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Ron.sbyZoo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -268,11 +411,15 @@
 		};
 		CC8C90EA1DB5A9E300DAA3B5 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B3473B8A5D86907BC3F1E75E /* Pods-sbyZoo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = sbyZoo/sbyZoo.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				DEVELOPMENT_TEAM = NGGRAD9ZX4;
 				INFOPLIST_FILE = sbyZoo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.BenRon.sbyZoo;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Ron.sbyZoo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -297,8 +444,22 @@
 				CC8C90EA1DB5A9E300DAA3B5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		CC58CE4B1DCA755E003EF551 /* Model.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				CC58CE4C1DCA755E003EF551 /* Model.xcdatamodel */,
+			);
+			currentVersion = CC58CE4C1DCA755E003EF551 /* Model.xcdatamodel */;
+			path = Model.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = CC8C90CE1DB5A9E200DAA3B5 /* Project object */;
 }
