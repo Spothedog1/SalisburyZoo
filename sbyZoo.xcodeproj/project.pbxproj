@@ -12,6 +12,7 @@
 		CC22AE311DB6F835009E11B8 /* webController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC22AE301DB6F835009E11B8 /* webController.swift */; };
 		CC3BBC611DB9146A0056A775 /* Twiddlestix.otf in Resources */ = {isa = PBXBuildFile; fileRef = CC3BBC601DB9146A0056A775 /* Twiddlestix.otf */; };
 		CC4FC9731DB5AA2800152AC2 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CC4FC9721DB5AA2800152AC2 /* GoogleService-Info.plist */; };
+		CC54E50A1E174275000FB990 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC54E5091E174275000FB990 /* CoreDataStack.swift */; };
 		CC58CE4D1DCA755E003EF551 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CC58CE4B1DCA755E003EF551 /* Model.xcdatamodeld */; };
 		CC7FE27D1DB7E82500CDE94B /* animal.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC7FE27C1DB7E82500CDE94B /* animal.swift */; };
 		CC7FE2811DB8148E00CDE94B /* customAnimalCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC7FE2801DB8148E00CDE94B /* customAnimalCell.swift */; };
@@ -34,6 +35,8 @@
 		CC22AE301DB6F835009E11B8 /* webController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = webController.swift; sourceTree = "<group>"; };
 		CC3BBC601DB9146A0056A775 /* Twiddlestix.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Twiddlestix.otf; path = font/Twiddlestix.otf; sourceTree = "<group>"; };
 		CC4FC9721DB5AA2800152AC2 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		CC54E5041E172DDD000FB990 /* Model 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Model 2.xcdatamodel"; sourceTree = "<group>"; };
+		CC54E5091E174275000FB990 /* CoreDataStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		CC58CE4C1DCA755E003EF551 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		CC7FE27C1DB7E82500CDE94B /* animal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = animal.swift; sourceTree = "<group>"; };
 		CC7FE2801DB8148E00CDE94B /* customAnimalCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = customAnimalCell.swift; sourceTree = "<group>"; };
@@ -121,6 +124,7 @@
 				CC3BBC601DB9146A0056A775 /* Twiddlestix.otf */,
 				CC8C90E21DB5A9E300DAA3B5 /* LaunchScreen.storyboard */,
 				CC8C90E51DB5A9E300DAA3B5 /* Info.plist */,
+				CC54E5091E174275000FB990 /* CoreDataStack.swift */,
 			);
 			path = sbyZoo;
 			sourceTree = "<group>";
@@ -165,7 +169,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0800;
-				LastUpgradeCheck = 0800;
+				LastUpgradeCheck = 0820;
 				ORGANIZATIONNAME = RonCorp;
 				TargetAttributes = {
 					CC8C90D51DB5A9E200DAA3B5 = {
@@ -269,6 +273,7 @@
 				CC22AE311DB6F835009E11B8 /* webController.swift in Sources */,
 				CC7FE2811DB8148E00CDE94B /* customAnimalCell.swift in Sources */,
 				CC8C90DA1DB5A9E300DAA3B5 /* AppDelegate.swift in Sources */,
+				CC54E50A1E174275000FB990 /* CoreDataStack.swift in Sources */,
 				CC99C7F31DCBDB15005BC0A5 /* coreDataOperations.swift in Sources */,
 				CCD7DF251DB7C7EA00BB089D /* animalTableViewController.swift in Sources */,
 				CCD7DF211DB7063200BB089D /* animalNavigationController.swift in Sources */,
@@ -320,6 +325,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -369,6 +375,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -452,9 +459,10 @@
 		CC58CE4B1DCA755E003EF551 /* Model.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				CC54E5041E172DDD000FB990 /* Model 2.xcdatamodel */,
 				CC58CE4C1DCA755E003EF551 /* Model.xcdatamodel */,
 			);
-			currentVersion = CC58CE4C1DCA755E003EF551 /* Model.xcdatamodel */;
+			currentVersion = CC54E5041E172DDD000FB990 /* Model 2.xcdatamodel */;
 			path = Model.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

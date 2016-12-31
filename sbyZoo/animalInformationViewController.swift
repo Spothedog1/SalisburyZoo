@@ -49,20 +49,26 @@ class animalInformationViewController: UIViewController, UIScrollViewDelegate {
     }
     
     func createImage(){
-        if let image = self.animal!.image {
-            let imageWidth = image.size.width
-            let imageHeight = image.size.height
-            let imageRatio = (imageWidth) / (imageHeight)
-            
-            let viewHeight = (self.screenWidth - (2*self.viewPadding)) / imageRatio
-            self.viewHeight = viewHeight
-            let imageView = UIImageView(image: image)
-            imageView.frame = CGRect(x: 0, y: 0, width: self.screenWidth, height: viewHeight)
-            imageView.image = image
-            imageView.contentMode = .scaleAspectFill
-            
-            self.imageView!.addSubview(imageView)
+        if let a = self.animal {
+            if (a.image != nil) {
+                let image = a.image!
+                let imageWidth = image.size.width
+                let imageHeight = image.size.height
+                let imageRatio = (imageWidth) / (imageHeight)
+                
+                let viewHeight = (self.screenWidth - (2*self.viewPadding)) / imageRatio
+                self.viewHeight = viewHeight
+                let imageView = UIImageView(image: image)
+                imageView.frame = CGRect(x: 0, y: 0, width: self.screenWidth, height: viewHeight)
+                imageView.image = image
+                imageView.contentMode = .scaleAspectFill
+                
+                self.imageView!.addSubview(imageView)
+            } else {
+                print("No Image")
+            }
         }
+
     }
     
     func createText(){
@@ -85,9 +91,6 @@ class animalInformationViewController: UIViewController, UIScrollViewDelegate {
             animalInformationLabel.frame = animalInformationLabelFrame
             animalInformationLabel.isScrollEnabled = false
             self.imageView!.addSubview(animalInformationLabel)
-            
-
-
         }
     }
     
@@ -101,8 +104,8 @@ class animalInformationViewController: UIViewController, UIScrollViewDelegate {
             self.imageView!.contentMode = .scaleAspectFill
 
             createTitle()
-            createImage()
-            createText()
+//            createImage()
+//            createText()
             self.contentView.addSubview(imageView!)
             
         }

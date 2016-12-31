@@ -16,8 +16,12 @@ class animalTableViewController: UITableViewController, addExhibitProtocol {
     var exhibitName: String?
     var animals: [animal]?
     let color = UIColor(red: 140.0/255, green: 198.0/255, blue: 62.0/255, alpha: 1.0)
+    let appDelegate = UIApplication.shared.delegate as? AppDelegate
+    let coreData = coreDataOperations()
     
     override func viewDidLoad() {
+        super.viewDidLoad()
+
         let imageViewRight:UIImageView = UIImageView()
         imageViewRight.frame = CGRect(x: 25, y: 10, width: 25, height: 25)
         let rightImage:UIImage = UIImage(named: "qr")!
@@ -31,8 +35,19 @@ class animalTableViewController: UITableViewController, addExhibitProtocol {
         rightItem.customView = rightView
         self.navigationItem.rightBarButtonItem = rightItem
         
-        super.viewDidLoad()
-        let appDelegate = UIApplication.shared.delegate as? AppDelegate
+        let imageViewLeft:UIImageView = UIImageView()
+        imageViewLeft.frame = CGRect(x:25, y:10, width: 25, height: 25)
+        let leftImage:UIImage = UIImage(named: "trash")!
+        imageViewLeft.image = leftImage
+        let leftView:UIView = UIView()
+        leftView.frame = CGRect(x: 0, y: 0, width: 45, height: 45)
+        leftView.addSubview(imageViewLeft)
+        let leftGestureRecognizer:UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(animalTableViewController.deleteList))
+        leftView.addGestureRecognizer(leftGestureRecognizer)
+        let leftItem:UIBarButtonItem = UIBarButtonItem()
+        leftItem.customView = leftView
+        self.navigationItem.leftBarButtonItem = leftItem
+        
         self.animals = appDelegate?.animals
         
         self.tableView.rowHeight = (UIScreen.main.bounds.width/1.61803398875)
@@ -49,42 +64,27 @@ class animalTableViewController: UITableViewController, addExhibitProtocol {
         titleView.addSubview(titleLabel)
         
         self.navigationItem.titleView = titleView
-        
-        if let animalArray = animals {
-            for animal in animalArray {
-                if let imageURL = animal.imageReference {
-                    let ref = FIRStorage.storage().reference(forURL: imageURL)
-                    ref.data(withMaxSize: 1 * 1024 * 1024) { (data, error) -> Void in
-                        if (error != nil) {
-                            print(error)
-                        } else {
-                            let image = UIImage(data: data!)
-                            animal.image = image
-                            self.tableView.reloadData()
-                        }
-                    }
-                }
-            }
-        }
     }
     
     
     func pushProfileToCamera(){
-        print("Button Pressed")
         self.performSegue(withIdentifier: "QRSegue", sender: nil)
     }
     
+    func deleteList(){
+        self.coreData.delete()
+        self.animals! = []
+        self.tableView.reloadData()
+    }
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if let animalArray = animals {
-            return animalArray.count
-        } else {
-            return 0
-        }
+        return animals!.count
     }
   
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let storageRef = FIRStorage.storage().reference(forURL: "gs://sbyzoo-d5f5e.appspot.com")
         let cell = tableView.dequeueReusableCell(withIdentifier: "customAnimalCell", for: indexPath) as! customAnimalCell
-        let animal = animals![indexPath.row]
+        let animal = self.animals![indexPath.row]
         self.tableView.deselectRow(at: indexPath, animated: true)
         
         let frame = CGRect(x: 0, y: 0, width: cell.frame.width, height: cell.frame.height)
@@ -92,16 +92,30 @@ class animalTableViewController: UITableViewController, addExhibitProtocol {
         imageView.contentMode = .scaleAspectFill
         if let image = animal.image {
             imageView.image = image
+        } else if (animal.name == "Flamingo"){
+            imageView.image = UIImage(named: "flamingo")
+        } else if let imageURL = animal.imageReference {
+            storageRef.child(imageURL).data(withMaxSize: 2 * 1024 * 1024, completion: { (data, error) -> Void in
+                DispatchQueue.main.async {
+                    if (error != nil){
+                        print(error!)
+                    } else {
+                        let image = UIImage(data: data!)
+                        animal.image = image
+                        imageView.image = image
+                    }
+                }
+
+            })
         }
         cell.backgroundView = UIView()
         cell.backgroundView!.addSubview(imageView)
-
         cell.customizeCell(label: animal.name)
         return cell
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        print("animalTableViewController has loaded")
+        super.viewWillAppear(animated)
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -121,50 +135,24 @@ class animalTableViewController: UITableViewController, addExhibitProtocol {
         }
     }
     
-    
     func addExhibit(exhibit: String){
         let ref = FIRDatabase.database().reference(withPath: "Exhibits")
-        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
-            return
-        }
-        
         ref.child(exhibit).observeSingleEvent(of: .value, with: {
-            snapshot in
+            ( snapshot ) in
             for item in snapshot.children {
                 let animalObject = animal(snapshot: item as! FIRDataSnapshot)
-                let managedContext = appDelegate.persistentContainer.viewContext
-                let entity = NSEntityDescription.entity(forEntityName: "Animal", in: managedContext)!
-                let animalEntity = NSManagedObject(entity: entity, insertInto: managedContext)
-                animalEntity.setValue(animalObject.name, forKey: "name")
-                animalEntity.setValue(animalObject.information, forKey: "information")
-                animalEntity.setValue(animalObject.imageReference, forKey: "imageURL")
-                animalEntity.setValue(animalObject.audioReference, forKey: "audio")
-                self.animals!.append(animalObject)
-
-                do {
-                    try managedContext.save()
-                } catch let error as NSError {
-                    print("Could not save. \(error), \(error.userInfo)")
-                }
-            }
-            if let animalArray = self.animals {
-                for animal in animalArray {
-                    if let imageURL = animal.imageReference {
-                        let ref = FIRStorage.storage().reference(forURL: imageURL)
-                        ref.data(withMaxSize: 1 * 1024 * 1024) { (data, error) -> Void in
-                            if (error != nil) {
-                                print(error)
-                            } else {
-                                let image = UIImage(data: data!)
-                                animal.image = image
-                                appDelegate.animals = self.animals
-                                self.tableView.reloadData()
-                            }
-                        }
-                    }
+                let exists = self.coreData.isAnimal(name: animalObject.name)
+                if (!(exists)){
+                    self.coreData.add(a: animalObject)
+                    self.animals!.append(animalObject)
+                } else {
+                    print("Already Added")
                 }
             }
             self.tableView.reloadData()
-        })
+
+        }) { (error) in
+            print(error)
+        }
     }
 }

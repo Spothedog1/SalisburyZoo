@@ -24,9 +24,6 @@ class webController: UIViewController {
         
         webView?.loadRequest(requestObj);
         super.viewDidLoad()
-        
-//        let data = coreDataOperations()
-//        data.delete()
     }
     
     

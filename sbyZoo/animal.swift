@@ -15,11 +15,12 @@ class animal {
     var information: String?
     var image: UIImage? // Image from Firebase Storage
     var imageReference: String? // Filename as stored in Firebase Storage
-    var audioReference: String? // Filename as stored in Firebase Storage
+    var complete: Bool
     
     init(snapshot: FIRDataSnapshot){
         self.name = snapshot.key
         let snapshotValue = snapshot.value as! NSDictionary // Cast snapshot to NSDictionary
+        self.complete = false
         
         if let information = snapshotValue["Information"] { // Safe Optional Unwrapping
             self.information = (information as! String)
@@ -27,16 +28,21 @@ class animal {
         if let image = snapshotValue["Image"] { // Safe Optional Unwrapping
             self.imageReference = (image as! String)
         }
-        if let audio = snapshotValue["Audio"] { // Safe Optional Unwrapping
-            self.audioReference = (audio as! String)
-        }
     }
     
-    init(name: String, information: String?, image: UIImage?, imageReference: String?, audioReference: String?){
+    init(name: String, information: String?, image: UIImage?, imageReference: String?, complete: NSNumber){
         self.name = name
-        self.information = information
-        self.image = image
-        self.imageReference = imageReference
-        self.audioReference = audioReference
+        
+        if let info = information {
+            self.information = info
+        }
+        if let img = image as UIImage! {
+            self.image = img
+        }
+        if let imageRef = imageReference {
+            self.imageReference = imageRef
+        }
+
+        self.complete = complete == 1 ? true : false
     }
 }
