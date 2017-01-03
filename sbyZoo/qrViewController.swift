@@ -8,9 +8,10 @@
 
 import UIKit
 import AVFoundation
+import Firebase
 
 protocol addExhibitProtocol {
-    func addExhibit(exhibit: String)
+    func addExhibit()
 }
 
 class qrViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate{
@@ -29,8 +30,49 @@ class qrViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate
         UIApplication.shared.statusBarStyle = .lightContent
     }
     
-    func buttonAction(){
-        self.dismiss(animated: true, completion: nil)
+    func buttonAction(exhibit: String){
+        let ref = FIRDatabase.database().reference(withPath: "Exhibits")
+        var animals: [animal] = []
+        let coreData = coreDataOperations()
+        var count = 0
+        
+        print("Exhibit : \(exhibit)")
+        ref.child(exhibit).observeSingleEvent(of: .value, with: {
+            ( snapshot ) in
+            for item in snapshot.children {
+                let animalObject = animal(snapshot: item as! FIRDataSnapshot)
+                let exists = coreData.isAnimal(name: animalObject.name)
+                if (!(exists)){
+                    coreData.add(a: animalObject)
+                    animals.insert(animalObject, at: 0)
+                    count += 1
+                } else {
+                    print("Already Added")
+                }
+            }
+            
+            let label = UILabel(frame: UIScreen.main.bounds)
+            label.center = CGPoint(x: UIScreen.main.bounds.width/2, y: UIScreen.main.bounds.height/2)
+            label.textAlignment = .center
+            label.backgroundColor = UIColor(red: 140.0/255, green: 198.0/255, blue: 62.0/255, alpha: 1.0)
+            label.textColor = UIColor.white
+            label.font = UIFont(name: "Twiddlestix", size: 30)
+            
+            if (count == 1){
+                label.text = "\(count) Animal Added"
+            } else {
+                label.text = "\(count) Animals Added"
+            }
+            self.view.addSubview(label)
+            
+            let when = DispatchTime.now() + 2
+            DispatchQueue.main.asyncAfter(deadline: when) {
+                self.delegate?.addExhibit()
+                self.dismiss(animated: true, completion: nil)
+            }
+        }) { (error) in
+            print(error)
+        }
     }
     
     override func viewDidLoad(){
@@ -39,6 +81,10 @@ class qrViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate
         self.configureVideoCapture()
         self.addVideoPreviewLayer()
         self.initializeQRView()
+    }
+    
+    func cancelScan(){
+        self.dismiss(animated: true, completion: nil)
     }
     
     func createButtonView(){
@@ -56,7 +102,7 @@ class qrViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate
         button.setTitle("Cancel", for: .normal)
         button.titleLabel!.font = UIFont(name: "Twiddlestix", size: 20)
         button.titleLabel!.textColor = UIColor.white
-        button.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
+        button.addTarget(self, action: #selector(cancelScan), for: .touchUpInside)
         
         self.view.addSubview(button)
         
@@ -119,8 +165,8 @@ class qrViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate
             if objMetadataMachineReadableCodeObject.stringValue != nil {
                 self.i += 1
                 if (i == 1){
-                    self.delegate?.addExhibit(exhibit: objMetadataMachineReadableCodeObject.stringValue)
-                    self.buttonAction()
+//                    self.delegate?.addExhibit(exhibit: objMetadataMachineReadableCodeObject.stringValue)
+                    self.buttonAction(exhibit: objMetadataMachineReadableCodeObject.stringValue)
                 }
             }
         }

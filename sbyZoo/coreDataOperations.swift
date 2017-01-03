@@ -14,26 +14,41 @@ class coreDataOperations{
     let ref = FIRDatabase.database().reference(withPath: "Exhibits")
     let coreData = CoreDataStack()
     
-    func isAnimal(name: String) -> Bool {
-        var exist: Bool = false
-
+    func update(name: String) {
         let managedContext = self.coreData.managedObjectContext
         let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "Animal")
+        let predicate = NSPredicate(format: "name = %@", name)
+        fetchRequest.predicate = predicate
         
-        do {
+        do{
             let animals: [NSManagedObject] = try managedContext.fetch(fetchRequest)
-            for animal in animals as [NSManagedObject] {
-                if var animalName = animal.value(forKey: "name") as? String {
-                    if (animalName == name){
-                        return true
-                    }
-                }
-    
+            let animal = animals[0]
+            animal.setValue(true, forKey: "complete")
+            do {
+                try managedContext.save()
+            } catch let error as NSError {
+                print("Couldn not save. \(error), \(error.userInfo)")
             }
         } catch let error as NSError {
             print("Could not fetch. \(error), \(error.userInfo)")
         }
-        return exist
+    }
+    
+    func isAnimal(name: String) -> Bool {
+        let managedContext = self.coreData.managedObjectContext
+        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "Animal")
+        let predicate = NSPredicate(format: "name = %@", name)
+        fetchRequest.predicate = predicate
+        
+        do {
+            let animals: [NSManagedObject] = try managedContext.fetch(fetchRequest)
+            if (animals.count == 1){
+                return true
+            }
+        } catch let error as NSError {
+            print("Could not fetch. \(error), \(error.userInfo)")
+        }
+        return false
     }
     
     func fetch() -> [animal] {

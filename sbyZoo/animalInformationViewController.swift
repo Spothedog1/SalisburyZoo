@@ -17,6 +17,7 @@ class animalInformationViewController: UIViewController, UIScrollViewDelegate {
     var viewHeight: CGFloat?
     var imageView: UIImageView?
     
+    let storageRef = FIRStorage.storage().reference(forURL: "gs://sbyzoo-d5f5e.appspot.com")
     let screenWidth: CGFloat = UIScreen.main.bounds.width
     let viewPadding: CGFloat = (UIScreen.main.bounds.width) * 0.021333
     
@@ -50,8 +51,8 @@ class animalInformationViewController: UIViewController, UIScrollViewDelegate {
     
     func createImage(){
         if let a = self.animal {
-            if (a.image != nil) {
-                let image = a.image!
+            let img: UIImage? = a.image as UIImage?
+            if let image  = a.image {
                 let imageWidth = image.size.width
                 let imageHeight = image.size.height
                 let imageRatio = (imageWidth) / (imageHeight)
@@ -64,8 +65,30 @@ class animalInformationViewController: UIViewController, UIScrollViewDelegate {
                 imageView.contentMode = .scaleAspectFill
                 
                 self.imageView!.addSubview(imageView)
+            } else if let imageURL = a.imageReference {
+                self.storageRef.child(imageURL).data(withMaxSize: 2 * 1024 * 1024, completion: { (data, error) -> Void in
+
+                        if (error != nil){
+                            print(error)
+                        } else {
+                            DispatchQueue.main.async {
+                                let image = UIImage(data: data!)
+                                let imageWidth = image!.size.width
+                                let imageHeight = image!.size.height
+                                let imageRatio = (imageWidth) / (imageHeight)
+                            
+                                let viewHeight = (self.screenWidth - (2*self.viewPadding)) / imageRatio
+                                self.viewHeight = viewHeight
+                                let imageView = UIImageView(image: image)
+                                imageView.frame = CGRect(x: 0, y: 0, width: self.screenWidth, height: viewHeight)
+                                imageView.image = image
+                                imageView.contentMode = .scaleAspectFill
+                                self.imageView!.addSubview(imageView)
+                        }
+                    }
+                })
             } else {
-                print("No Image")
+                self.imageView = UIImageView()
             }
         }
 
@@ -79,13 +102,20 @@ class animalInformationViewController: UIViewController, UIScrollViewDelegate {
             animalInformationLabel.font = UIFont(name: "Twiddlestix", size: 20)
 //            animalInformationLabel.backgroundColor = UIColor.lightGray.withAlphaComponent(0.75)
             animalInformationLabel.textColor = UIColor.white
+            let bottomImage: CGFloat
             
-            let origin = CGPoint(x: 0, y: self.viewHeight! + self.viewPadding)
+            if let imageV = self.imageView {
+                bottomImage = imageV.bounds.maxY
+            } else {
+                bottomImage = 0.0
+            }
+            
+            let origin = CGPoint(x: 0, y: bottomImage + self.viewPadding)
             animalInformationLabel.frame = CGRect(origin: origin, size: CGSize(width: self.screenWidth - (2*self.viewPadding), height: CGFloat.greatestFiniteMagnitude))
             
             animalInformationLabel.sizeThatFits(CGSize(width: self.screenWidth - (2*self.viewPadding), height: CGFloat.greatestFiniteMagnitude))
             let newSize = animalInformationLabel.sizeThatFits(CGSize(width: self.screenWidth - (2*self.viewPadding), height: CGFloat.greatestFiniteMagnitude))
-            let animalInformationLabelFrame = CGRect(x: self.viewPadding, y: self.viewHeight! + (2*self.viewPadding), width: self.screenWidth - (2*self.viewPadding), height: newSize.height)
+            let animalInformationLabelFrame = CGRect(x: self.viewPadding, y: bottomImage + (2*self.viewPadding), width: self.screenWidth - (2*self.viewPadding), height: newSize.height)
             
 
             animalInformationLabel.frame = animalInformationLabelFrame
@@ -105,7 +135,7 @@ class animalInformationViewController: UIViewController, UIScrollViewDelegate {
 
             createTitle()
 //            createImage()
-//            createText()
+            createText()
             self.contentView.addSubview(imageView!)
             
         }

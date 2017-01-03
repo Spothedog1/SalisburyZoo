@@ -25,7 +25,4 @@ class webController: UIViewController {
         webView?.loadRequest(requestObj);
         super.viewDidLoad()
     }
-    
-    
-
 }
