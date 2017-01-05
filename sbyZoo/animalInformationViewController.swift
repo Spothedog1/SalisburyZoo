@@ -8,34 +8,17 @@
 
 import Foundation
 import UIKit
-import Firebase
+import AVFoundation
 
 class animalInformationViewController: UIViewController, UIScrollViewDelegate {
-    var animal: animal?
     @IBOutlet weak var scrollView: UIScrollView!
-    @IBOutlet weak var contentView: UIView!
-    var viewHeight: CGFloat?
-    var imageView: UIImageView?
-    
-    let storageRef = FIRStorage.storage().reference(forURL: "gs://sbyzoo-d5f5e.appspot.com")
+    var animal: animal?
+    var viewHeight: CGFloat = 0.0
+    var myUtterance = AVSpeechUtterance(string: "")
+    let synth = AVSpeechSynthesizer()
+    let contentView = UIView()
     let screenWidth: CGFloat = UIScreen.main.bounds.width
     let viewPadding: CGFloat = (UIScreen.main.bounds.width) * 0.021333
-    
-    func createTextView(_ text: String, topOfFrame: CGFloat) -> UITextView? {
-        let animalInformationLabel: UITextView = UITextView()
-        let animalInformationLabelFrame = CGRect(x: self.viewPadding, y: topOfFrame + self.viewPadding,
-                                                 width: self.screenWidth - (2*self.viewPadding), height: 1000)
-        animalInformationLabel.frame = animalInformationLabelFrame
-        animalInformationLabel.text = text
-        animalInformationLabel.font = UIFont(name: "Helvetica Neue", size: 18)
-        
-        let updatedAnimalInformationLabelFrame = CGRect(x: self.viewPadding, y: topOfFrame + self.viewPadding,
-                                                        width: self.screenWidth - (2*self.viewPadding),
-                                                        height: animalInformationLabel.contentSize.height)
-        
-        animalInformationLabel.frame = updatedAnimalInformationLabelFrame
-        return animalInformationLabel
-    }
     
     func createTitle(){
         let titleLabel = UILabel(frame: CGRect(x: 0,y: 0,width: 150,height: 50))
@@ -49,95 +32,92 @@ class animalInformationViewController: UIViewController, UIScrollViewDelegate {
         self.navigationItem.titleView = titleView
     }
     
+    func createImageView(image: UIImage) -> UIImageView{
+        let imageWidth = image.size.width
+        let imageHeight = image.size.height
+        let imageRatio = (imageWidth)/(imageHeight)
+        let viewHeight = (self.screenWidth - (2*self.viewPadding)) / imageRatio
+        self.viewHeight = viewHeight
+        let imageView = UIImageView(image: image)
+        imageView.frame = CGRect(x: 0, y: 0, width: self.screenWidth, height: viewHeight)
+        imageView.image = image
+        imageView.contentMode = .scaleAspectFill
+        return imageView
+    }
+    
     func createImage(){
         if let a = self.animal {
-            let img: UIImage? = a.image as UIImage?
             if let image  = a.image {
-                let imageWidth = image.size.width
-                let imageHeight = image.size.height
-                let imageRatio = (imageWidth) / (imageHeight)
-                
-                let viewHeight = (self.screenWidth - (2*self.viewPadding)) / imageRatio
-                self.viewHeight = viewHeight
-                let imageView = UIImageView(image: image)
-                imageView.frame = CGRect(x: 0, y: 0, width: self.screenWidth, height: viewHeight)
-                imageView.image = image
-                imageView.contentMode = .scaleAspectFill
-                
-                self.imageView!.addSubview(imageView)
+                let imageView = createImageView(image: image)
+                self.contentView.addSubview(imageView)
             } else if let imageURL = a.imageReference {
-                self.storageRef.child(imageURL).data(withMaxSize: 2 * 1024 * 1024, completion: { (data, error) -> Void in
-
-                        if (error != nil){
-                            print(error)
+                firebaseAPI().downloadImage(imageURL, completionHandler: { (error, image) -> Void in
+                    DispatchQueue.main.async {
+                        if (error){
+                            print("Image Downloading Error")
                         } else {
-                            DispatchQueue.main.async {
-                                let image = UIImage(data: data!)
-                                let imageWidth = image!.size.width
-                                let imageHeight = image!.size.height
-                                let imageRatio = (imageWidth) / (imageHeight)
-                            
-                                let viewHeight = (self.screenWidth - (2*self.viewPadding)) / imageRatio
-                                self.viewHeight = viewHeight
-                                let imageView = UIImageView(image: image)
-                                imageView.frame = CGRect(x: 0, y: 0, width: self.screenWidth, height: viewHeight)
-                                imageView.image = image
-                                imageView.contentMode = .scaleAspectFill
-                                self.imageView!.addSubview(imageView)
+                            if let animalImage = image {
+                                print("Downloading Image: \(a.name)")
+                                let imageView = self.createImageView(image: animalImage)
+                                self.contentView.addSubview(imageView)
+                            }
                         }
                     }
                 })
             } else {
-                self.imageView = UIImageView()
+                self.viewHeight = 0.0
             }
         }
-
     }
     
     func createText(){
         if let description = self.animal!.information {
-            let animalInformationLabel: UITextView = UITextView()
-       
+            let animalInformationLabel: UILabel = UILabel(frame: CGRect(x: self.viewPadding, y: self.viewHeight + self.viewPadding, width: self.screenWidth - (2*self.viewPadding), height: CGFloat.greatestFiniteMagnitude))
+            animalInformationLabel.numberOfLines = 0
+            animalInformationLabel.lineBreakMode = NSLineBreakMode.byWordWrapping
+            animalInformationLabel.font = UIFont(name: "AppleSDGothicNeo-Light ", size: 20)
             animalInformationLabel.text = description
-            animalInformationLabel.font = UIFont(name: "Twiddlestix", size: 20)
-//            animalInformationLabel.backgroundColor = UIColor.lightGray.withAlphaComponent(0.75)
             animalInformationLabel.textColor = UIColor.white
-            let bottomImage: CGFloat
-            
-            if let imageV = self.imageView {
-                bottomImage = imageV.bounds.maxY
-            } else {
-                bottomImage = 0.0
-            }
-            
-            let origin = CGPoint(x: 0, y: bottomImage + self.viewPadding)
-            animalInformationLabel.frame = CGRect(origin: origin, size: CGSize(width: self.screenWidth - (2*self.viewPadding), height: CGFloat.greatestFiniteMagnitude))
-            
-            animalInformationLabel.sizeThatFits(CGSize(width: self.screenWidth - (2*self.viewPadding), height: CGFloat.greatestFiniteMagnitude))
-            let newSize = animalInformationLabel.sizeThatFits(CGSize(width: self.screenWidth - (2*self.viewPadding), height: CGFloat.greatestFiniteMagnitude))
-            let animalInformationLabelFrame = CGRect(x: self.viewPadding, y: bottomImage + (2*self.viewPadding), width: self.screenWidth - (2*self.viewPadding), height: newSize.height)
-            
-
-            animalInformationLabel.frame = animalInformationLabelFrame
-            animalInformationLabel.isScrollEnabled = false
-            self.imageView!.addSubview(animalInformationLabel)
+            animalInformationLabel.sizeToFit()
+            animalInformationLabel.frame.origin = CGPoint(x: self.viewPadding, y: self.viewHeight + self.viewPadding)
+            self.contentView.frame = CGRect(x: 0, y: 0, width: self.screenWidth, height: animalInformationLabel.frame.maxY)
+            self.contentView.addSubview(animalInformationLabel)
         }
+    }
+    
+    func readText(){
+        myUtterance = AVSpeechUtterance(string: self.animal!.information!)
+        myUtterance.rate = 0.5
+        synth.speak(myUtterance)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let imageViewRight:UIImageView = UIImageView()
+        imageViewRight.frame = CGRect(x: 25, y: 10, width: 25, height: 25)
+        let rightImage:UIImage = UIImage(named: "audio")!
+        
+        imageViewRight.image = rightImage
+        imageViewRight.image = imageViewRight.image!.withRenderingMode(.alwaysTemplate)
+        imageViewRight.tintColor = UIColor.white
+        
+        let rightView:UIView = UIView()
+        rightView.frame = CGRect(x: 0,y: 0,width: 45,height: 45)
+        rightView.addSubview(imageViewRight)
+        let rightGestureRecognizer:UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(animalInformationViewController.readText))
+        rightView.addGestureRecognizer(rightGestureRecognizer)
+        let rightItem:UIBarButtonItem = UIBarButtonItem()
+        rightItem.customView = rightView
+        self.navigationItem.rightBarButtonItem = rightItem
+        
         if self.animal != nil {
-            let image = UIImage(named: "bamboo")
-            self.imageView = UIImageView(image: image)
-            self.imageView!.frame = self.contentView.frame
-            self.imageView!.contentMode = .scaleAspectFill
-
             createTitle()
-//            createImage()
+            createImage()
             createText()
-            self.contentView.addSubview(imageView!)
-            
+            self.scrollView.backgroundColor = UIColor(red: 140.0/255, green: 198.0/255, blue: 62.0/255, alpha: 1.0)
+            self.scrollView.contentSize = self.contentView.frame.size
+            self.scrollView.addSubview(self.contentView)
         }
     }
 }

@@ -11,6 +11,8 @@
 		CC22AE2F1DB6F759009E11B8 /* rootTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC22AE2E1DB6F759009E11B8 /* rootTabBarController.swift */; };
 		CC22AE311DB6F835009E11B8 /* webController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC22AE301DB6F835009E11B8 /* webController.swift */; };
 		CC3BBC611DB9146A0056A775 /* Twiddlestix.otf in Resources */ = {isa = PBXBuildFile; fileRef = CC3BBC601DB9146A0056A775 /* Twiddlestix.otf */; };
+		CC41DC791E1D937800D65406 /* firebaseAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC41DC781E1D937800D65406 /* firebaseAPI.swift */; };
+		CC41DC7B1E1D938300D65406 /* coreDataAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC41DC7A1E1D938300D65406 /* coreDataAPI.swift */; };
 		CC4FC9731DB5AA2800152AC2 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CC4FC9721DB5AA2800152AC2 /* GoogleService-Info.plist */; };
 		CC54E50A1E174275000FB990 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC54E5091E174275000FB990 /* CoreDataStack.swift */; };
 		CC58CE4D1DCA755E003EF551 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CC58CE4B1DCA755E003EF551 /* Model.xcdatamodeld */; };
@@ -20,7 +22,6 @@
 		CC8C90DF1DB5A9E300DAA3B5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CC8C90DD1DB5A9E300DAA3B5 /* Main.storyboard */; };
 		CC8C90E11DB5A9E300DAA3B5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CC8C90E01DB5A9E300DAA3B5 /* Assets.xcassets */; };
 		CC8C90E41DB5A9E300DAA3B5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CC8C90E21DB5A9E300DAA3B5 /* LaunchScreen.storyboard */; };
-		CC99C7F31DCBDB15005BC0A5 /* coreDataOperations.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC99C7F21DCBDB15005BC0A5 /* coreDataOperations.swift */; };
 		CCD7DF211DB7063200BB089D /* animalNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD7DF201DB7063200BB089D /* animalNavigationController.swift */; };
 		CCD7DF251DB7C7EA00BB089D /* animalTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD7DF241DB7C7EA00BB089D /* animalTableViewController.swift */; };
 		CCD7DF271DB7C8BB00BB089D /* animalInformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD7DF261DB7C8BB00BB089D /* animalInformationViewController.swift */; };
@@ -34,6 +35,8 @@
 		CC22AE2E1DB6F759009E11B8 /* rootTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = rootTabBarController.swift; sourceTree = "<group>"; };
 		CC22AE301DB6F835009E11B8 /* webController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = webController.swift; sourceTree = "<group>"; };
 		CC3BBC601DB9146A0056A775 /* Twiddlestix.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Twiddlestix.otf; path = font/Twiddlestix.otf; sourceTree = "<group>"; };
+		CC41DC781E1D937800D65406 /* firebaseAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = firebaseAPI.swift; sourceTree = "<group>"; };
+		CC41DC7A1E1D938300D65406 /* coreDataAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = coreDataAPI.swift; sourceTree = "<group>"; };
 		CC4FC9721DB5AA2800152AC2 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		CC54E5041E172DDD000FB990 /* Model 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Model 2.xcdatamodel"; sourceTree = "<group>"; };
 		CC54E5091E174275000FB990 /* CoreDataStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
@@ -46,7 +49,6 @@
 		CC8C90E01DB5A9E300DAA3B5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CC8C90E31DB5A9E300DAA3B5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CC8C90E51DB5A9E300DAA3B5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		CC99C7F21DCBDB15005BC0A5 /* coreDataOperations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = coreDataOperations.swift; sourceTree = "<group>"; };
 		CCD7DF201DB7063200BB089D /* animalNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = animalNavigationController.swift; sourceTree = "<group>"; };
 		CCD7DF241DB7C7EA00BB089D /* animalTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = animalTableViewController.swift; sourceTree = "<group>"; };
 		CCD7DF261DB7C8BB00BB089D /* animalInformationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = animalInformationViewController.swift; sourceTree = "<group>"; };
@@ -92,6 +94,15 @@
 			name = Controllers;
 			sourceTree = "<group>";
 		};
+		CC41DC771E1D937000D65406 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				CC41DC781E1D937800D65406 /* firebaseAPI.swift */,
+				CC41DC7A1E1D938300D65406 /* coreDataAPI.swift */,
+			);
+			name = Data;
+			sourceTree = "<group>";
+		};
 		CC8C90CD1DB5A9E200DAA3B5 = {
 			isa = PBXGroup;
 			children = (
@@ -113,6 +124,7 @@
 		CC8C90D81DB5A9E300DAA3B5 /* sbyZoo */ = {
 			isa = PBXGroup;
 			children = (
+				CC41DC771E1D937000D65406 /* Data */,
 				CCD7DF281DB7CCC900BB089D /* Models */,
 				CC22AE2D1DB6F737009E11B8 /* Controllers */,
 				CC22AE2C1DB6BD1C009E11B8 /* sbyZoo.entitlements */,
@@ -134,7 +146,6 @@
 			children = (
 				CC7FE27C1DB7E82500CDE94B /* animal.swift */,
 				CC7FE2801DB8148E00CDE94B /* customAnimalCell.swift */,
-				CC99C7F21DCBDB15005BC0A5 /* coreDataOperations.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -271,12 +282,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				CC22AE311DB6F835009E11B8 /* webController.swift in Sources */,
+				CC41DC791E1D937800D65406 /* firebaseAPI.swift in Sources */,
 				CC7FE2811DB8148E00CDE94B /* customAnimalCell.swift in Sources */,
 				CC8C90DA1DB5A9E300DAA3B5 /* AppDelegate.swift in Sources */,
 				CC54E50A1E174275000FB990 /* CoreDataStack.swift in Sources */,
-				CC99C7F31DCBDB15005BC0A5 /* coreDataOperations.swift in Sources */,
 				CCD7DF251DB7C7EA00BB089D /* animalTableViewController.swift in Sources */,
 				CCD7DF211DB7063200BB089D /* animalNavigationController.swift in Sources */,
+				CC41DC7B1E1D938300D65406 /* coreDataAPI.swift in Sources */,
 				CC22AE2F1DB6F759009E11B8 /* rootTabBarController.swift in Sources */,
 				CCD7DF271DB7C8BB00BB089D /* animalInformationViewController.swift in Sources */,
 				CC58CE4D1DCA755E003EF551 /* Model.xcdatamodeld in Sources */,

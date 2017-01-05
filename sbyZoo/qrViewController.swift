@@ -8,10 +8,9 @@
 
 import UIKit
 import AVFoundation
-import Firebase
 
 protocol addExhibitProtocol {
-    func addExhibit()
+    func addExhibit(animals: [animal])
 }
 
 class qrViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate{
@@ -31,25 +30,21 @@ class qrViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate
     }
     
     func buttonAction(exhibit: String){
-        let ref = FIRDatabase.database().reference(withPath: "Exhibits")
-        var animals: [animal] = []
-        let coreData = coreDataOperations()
+        let coreData = coreDataAPI()
+        let firebase = firebaseAPI()
         var count = 0
         
-        print("Exhibit : \(exhibit)")
-        ref.child(exhibit).observeSingleEvent(of: .value, with: {
-            ( snapshot ) in
-            for item in snapshot.children {
-                let animalObject = animal(snapshot: item as! FIRDataSnapshot)
-                let exists = coreData.isAnimal(name: animalObject.name)
-                if (!(exists)){
-                    coreData.add(a: animalObject)
-                    animals.insert(animalObject, at: 0)
-                    count += 1
-                } else {
+        firebase.getExhibit(exhibit, completionHandler: {(animals: [animal]) -> Void in
+            for animal in animals {
+                let exists = coreData.isAnimal(name: animal.name)
+                if (exists){
                     print("Already Added")
+                } else {
+                    coreData.add(a: animal)
+                    count += 1
                 }
             }
+            self.delegate?.addExhibit(animals: animals)
             
             let label = UILabel(frame: UIScreen.main.bounds)
             label.center = CGPoint(x: UIScreen.main.bounds.width/2, y: UIScreen.main.bounds.height/2)
@@ -67,12 +62,9 @@ class qrViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate
             
             let when = DispatchTime.now() + 2
             DispatchQueue.main.asyncAfter(deadline: when) {
-                self.delegate?.addExhibit()
                 self.dismiss(animated: true, completion: nil)
             }
-        }) { (error) in
-            print(error)
-        }
+        })
     }
     
     override func viewDidLoad(){
@@ -165,7 +157,6 @@ class qrViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate
             if objMetadataMachineReadableCodeObject.stringValue != nil {
                 self.i += 1
                 if (i == 1){
-//                    self.delegate?.addExhibit(exhibit: objMetadataMachineReadableCodeObject.stringValue)
                     self.buttonAction(exhibit: objMetadataMachineReadableCodeObject.stringValue)
                 }
             }

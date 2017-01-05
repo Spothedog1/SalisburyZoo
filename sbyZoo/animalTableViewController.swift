@@ -8,17 +8,15 @@
 
 import Foundation
 import UIKit
-import Firebase
-import CoreData
 
 class animalTableViewController: UITableViewController, addExhibitProtocol, UISearchResultsUpdating {
-    let ref = FIRDatabase.database().reference(withPath: "Exhibits")
     var exhibitName: String?
     var animals: [animal]?
     var filteredAnimals: [animal]?
     let color = UIColor(red: 140.0/255, green: 198.0/255, blue: 62.0/255, alpha: 1.0)
     let appDelegate = UIApplication.shared.delegate as? AppDelegate
-    let coreData = coreDataOperations()
+    let coreData = coreDataAPI()
+    let firebase = firebaseAPI()
     let searchController = UISearchController(searchResultsController: nil)
     
     override func viewDidLoad() {
@@ -107,7 +105,6 @@ class animalTableViewController: UITableViewController, addExhibitProtocol, UISe
     }
   
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let storageRef = FIRStorage.storage().reference(forURL: "gs://sbyzoo-d5f5e.appspot.com")
         let cell = tableView.dequeueReusableCell(withIdentifier: "customAnimalCell", for: indexPath) as! customAnimalCell
         var animal = self.animals![indexPath.row]
         self.tableView.deselectRow(at: indexPath, animated: true)
@@ -128,14 +125,15 @@ class animalTableViewController: UITableViewController, addExhibitProtocol, UISe
                 imageView.image = UIImage(named: "flamingo")
                 animal.image = UIImage(named: "flamingo")
             } else if let imageURL = animal.imageReference {
-                storageRef.child(imageURL).data(withMaxSize: 2 * 1024 * 1024, completion: { (data, error) -> Void in
+                self.firebase.downloadImage(imageURL, completionHandler: { (error, image) -> Void in
                     DispatchQueue.main.async {
-                        if (error != nil){
-                            print(error!)
+                        if (error){
+                            print("Image Downloading Error")
                         } else {
-                            let image = UIImage(data: data!)
-                            animal.image = image
-                            imageView.image = image
+                            if let animalImage = image {
+                                animal.image = animalImage
+                                imageView.image = animalImage
+                            }
                         }
                     }
                 })
@@ -180,31 +178,29 @@ class animalTableViewController: UITableViewController, addExhibitProtocol, UISe
             qrViewController.delegate = self
         }
     }
-    func addExhibit() {
-        self.animals! = (self.coreData.fetch()).reversed()
+    
+    func addExhibit(animals: [animal]) {
+        let queue = DispatchQueue(label: "downloadImages")
+        queue.async {
+            for animal in animals {
+                if (animal.image == nil) {
+                    print("Downloading Image: \(animal.name)")
+                    if let imageURL = animal.imageReference {
+                        self.firebase.downloadImage(imageURL, completionHandler: { (error, image) -> Void in
+                            if (error){
+                                print("Image Downloading Error")
+                            } else {
+                                if let animalImage = image {
+                                    animal.image = animalImage
+                                }
+                            }
+                        })
+                    }
+                }
+            }
+        }
+        let temp = animals + self.animals!
+        self.animals! = temp
         self.tableView.reloadData()
     }
-    
-//    func addExhibit(exhibit: String){
-//        let ref = FIRDatabase.database().reference(withPath: "Exhibits")
-//        ref.child(exhibit).observeSingleEvent(of: .value, with: {
-//            ( snapshot ) in
-//            let count = snapshot.childrenCount
-//            
-//            for item in snapshot.children {
-//                let animalObject = animal(snapshot: item as! FIRDataSnapshot)
-//                let exists = self.coreData.isAnimal(name: animalObject.name)
-//                if (!(exists)){
-//                    self.coreData.add(a: animalObject)
-//                    self.animals!.insert(animalObject, at: 0)
-//                } else {
-//                    print("Already Added")
-//                }
-//            }
-//            self.tableView.reloadData()
-//
-//        }) { (error) in
-//            print(error)
-//        }
-//    }
 }

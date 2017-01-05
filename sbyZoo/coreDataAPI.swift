@@ -1,19 +1,17 @@
 //
-//  coreDataOperations.swift
+//  coreDataAPI.swift
 //  sbyZoo
 //
-//  Created by Ron Basumallik on 11/3/16.
-//  Copyright © 2016 RonCorp. All rights reserved.
+//  Created by Ron Basumallik on 1/4/17.
+//  Copyright © 2017 RonCorp. All rights reserved.
 //
 
 import CoreData
-import UIKit
-import Firebase
 
-class coreDataOperations{
-    let ref = FIRDatabase.database().reference(withPath: "Exhibits")
+class coreDataAPI {
     let coreData = CoreDataStack()
     
+    // Sets animal discovery to true
     func update(name: String) {
         let managedContext = self.coreData.managedObjectContext
         let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "Animal")
@@ -34,6 +32,7 @@ class coreDataOperations{
         }
     }
     
+    // Checks to see if animal is already added
     func isAnimal(name: String) -> Bool {
         let managedContext = self.coreData.managedObjectContext
         let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "Animal")
@@ -51,12 +50,13 @@ class coreDataOperations{
         return false
     }
     
+    // Fetches all animals
     func fetch() -> [animal] {
         var arr:[animal] = []
         let managedContext = self.coreData.managedObjectContext
         
         let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "Animal")
-    
+        
         do {
             let animals: [NSManagedObject] = try managedContext.fetch(fetchRequest)
             for animalObj in animals as [NSManagedObject]{
@@ -73,6 +73,7 @@ class coreDataOperations{
         return arr
     }
     
+    // Adds animal
     func add(a: animal){
         let managedContext = self.coreData.managedObjectContext
         
@@ -96,6 +97,7 @@ class coreDataOperations{
         }
     }
     
+    // Deletes all animals
     func delete(){
         let managedContext = self.coreData.managedObjectContext
         let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "Animal")
@@ -111,5 +113,3 @@ class coreDataOperations{
         }
     }
 }
-
-

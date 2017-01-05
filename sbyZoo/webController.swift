@@ -8,7 +8,6 @@
 
 import UIKit
 import WebKit
-import CoreData
 
 class webController: UIViewController {
     @IBOutlet weak var webView: UIWebView!
