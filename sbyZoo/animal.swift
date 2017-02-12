@@ -12,7 +12,10 @@ import Firebase
 
 class animal {
     var name: String
-    var information: String?
+    var description: String?
+    var habitat: String?
+    var scientificName: String?
+    var status: String?
     var image: UIImage? // Image from Firebase Storage
     var imageReference: String? // Filename as stored in Firebase Storage
     var complete: Bool
@@ -22,25 +25,43 @@ class animal {
         let snapshotValue = snapshot.value as! NSDictionary // Cast snapshot to NSDictionary
         self.complete = false
         
-        if let information = snapshotValue["Information"] { // Safe Optional Unwrapping
-            self.information = (information as! String)
+        if let descriptionUnwrapped = snapshotValue["description"] { // Safe Optional Unwrapping
+            self.description = (descriptionUnwrapped as! String)
         }
-        if let image = snapshotValue["Image"] { // Safe Optional Unwrapping
-            self.imageReference = (image as! String)
+        if let imageReferenceUnwrapped = snapshotValue["image"] { // Safe Optional Unwrapping
+            self.imageReference = (imageReferenceUnwrapped as! String)
+        }
+        if let habitatUnwrapped = snapshotValue["habitat"] {
+            self.habitat = (habitatUnwrapped as! String)
+        }
+        if let scientificNameUnwrapped = snapshotValue["sn"] {
+            self.scientificName = (scientificNameUnwrapped as! String)
+        }
+        if let statusUnwrapped = snapshotValue["status"] {
+            self.status = (statusUnwrapped as! String)
         }
     }
     
-    init(name: String, information: String?, image: UIImage?, imageReference: String?, complete: NSNumber){
+    init(name: String, description: String?, image: UIImage?, imageReference: String?, complete: NSNumber, habitat: String?, scientificName: String?, status: String?){
         self.name = name
         
-        if let info = information {
-            self.information = info
+        if let descriptionUnwrapped = description {
+            self.description = descriptionUnwrapped
         }
         if let img = image as UIImage! {
             self.image = img
         }
-        if let imageRef = imageReference {
-            self.imageReference = imageRef
+        if let imageReferenceUnwrapped = imageReference {
+            self.imageReference = imageReferenceUnwrapped
+        }
+        if let habitatUnwrapped = habitat {
+            self.habitat = habitatUnwrapped
+        }
+        if let scientificNameUnwrapped = scientificName {
+            self.scientificName = scientificNameUnwrapped
+        }
+        if let statusUnwrapped = status {
+            self.status = statusUnwrapped
         }
 
         self.complete = complete == 1 ? true : false

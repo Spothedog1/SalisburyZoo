@@ -19,6 +19,8 @@ class animalInformationViewController: UIViewController, UIScrollViewDelegate {
     let contentView = UIView()
     let screenWidth: CGFloat = UIScreen.main.bounds.width
     let viewPadding: CGFloat = (UIScreen.main.bounds.width) * 0.021333
+    var speak: Bool = false
+    var text: String?
     
     func createTitle(){
         let titleLabel = UILabel(frame: CGRect(x: 0,y: 0,width: 150,height: 50))
@@ -71,24 +73,50 @@ class animalInformationViewController: UIViewController, UIScrollViewDelegate {
     }
     
     func createText(){
-        if let description = self.animal!.information {
-            let animalInformationLabel: UILabel = UILabel(frame: CGRect(x: self.viewPadding, y: self.viewHeight + self.viewPadding, width: self.screenWidth - (2*self.viewPadding), height: CGFloat.greatestFiniteMagnitude))
-            animalInformationLabel.numberOfLines = 0
-            animalInformationLabel.lineBreakMode = NSLineBreakMode.byWordWrapping
-            animalInformationLabel.font = UIFont(name: "AppleSDGothicNeo-Light ", size: 20)
-            animalInformationLabel.text = description
-            animalInformationLabel.textColor = UIColor.white
-            animalInformationLabel.sizeToFit()
-            animalInformationLabel.frame.origin = CGPoint(x: self.viewPadding, y: self.viewHeight + self.viewPadding)
-            self.contentView.frame = CGRect(x: 0, y: 0, width: self.screenWidth, height: animalInformationLabel.frame.maxY)
-            self.contentView.addSubview(animalInformationLabel)
+        
+        var text = ""
+        if let scientificNameUnwrapped = self.animal!.scientificName {
+            text += "\(self.animal!.name) - (\(scientificNameUnwrapped))\n\n"
         }
+        if let statusUnwrapped = self.animal!.status {
+            text += "Status - \(statusUnwrapped)\n\n"
+        }
+        if let habitatUnwrapped = self.animal!.habitat {
+            text += "Habitat - \(habitatUnwrapped)\n\n"
+        }
+        if let descriptionUnwrapped = self.animal!.description {
+            text += "\(descriptionUnwrapped)"
+        }
+        self.text = text
+        
+        let animalInformationLabel: UILabel = UILabel(frame: CGRect(x: self.viewPadding, y: self.viewHeight + self.viewPadding, width: self.screenWidth - (2*self.viewPadding), height: CGFloat.greatestFiniteMagnitude))
+        animalInformationLabel.numberOfLines = 0
+        animalInformationLabel.lineBreakMode = NSLineBreakMode.byWordWrapping
+        animalInformationLabel.font = UIFont(name: "AppleSDGothicNeo-Light", size: 20)
+        animalInformationLabel.text = text
+        animalInformationLabel.textColor = UIColor.white
+        animalInformationLabel.sizeToFit()
+        animalInformationLabel.frame.origin = CGPoint(x: self.viewPadding, y: self.viewHeight + self.viewPadding)
+        self.contentView.frame = CGRect(x: 0, y: 0, width: self.screenWidth, height: animalInformationLabel.frame.maxY)
+        self.contentView.addSubview(animalInformationLabel)
     }
     
     func readText(){
-        myUtterance = AVSpeechUtterance(string: self.animal!.information!)
-        myUtterance.rate = 0.5
-        synth.speak(myUtterance)
+        if let text = self.text {
+            myUtterance = AVSpeechUtterance(string: text)
+            myUtterance.rate = 0.5
+            if (self.speak){
+                synth.stopSpeaking(at: .word)
+            } else {
+                synth.speak(myUtterance)
+            }
+            self.speak = !self.speak
+        }
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        synth.stopSpeaking(at: .word)
     }
     
     override func viewDidLoad() {

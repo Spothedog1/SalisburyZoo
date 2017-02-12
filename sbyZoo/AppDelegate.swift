@@ -13,6 +13,7 @@ import CoreData
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     var animals: [animal]?
+    var news: [news]?
     var window: UIWindow?
     lazy var coreDataStack = CoreDataStack()
     var firebase: firebaseAPI?
@@ -28,6 +29,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 print("Authenticated")
                 self.firebase = firebaseAPI()
                 let queue = DispatchQueue(label: "imageDownload", qos: DispatchQoS.userInitiated)
+                let queue2 = DispatchQueue(label: "newsDownload", qos: DispatchQoS.utility)
                 queue.async {
                     for animal in self.animals! {
                         if (animal.image == nil) {
@@ -48,12 +50,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                         }
                     }
                 }
+                queue2.async {
+                    if let api = self.firebase {
+                        api.getNews(completionHandler: {(news:[news]) -> Void in
+                            print("News Downloaded")
+                            self.news = news
+                        })
+                    }
+                }
             }
         }
     }
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        
+        print("start")
+
         // Override point for customization after application launch.
         let data = coreDataAPI()
         self.animals = data.fetch()
@@ -62,14 +73,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         if (!(isFlamingo)){
             let flamingoImage = UIImage(named: "flamingo")
-            let flamingo = animal(name: "Flamingo", information: "Flamingoes are a type of wadding bird.", image: flamingoImage, imageReference: nil, complete: 0)
+            let flamingoDescription = "Flamingos are nomadic, moving from lake to lake following the wet/dry cycle of salt flats. Crustaceans, algae, and diatoms consumed from these environments are responsible for their pinkish color."
+            let flamingoHabitat = "Highland salt lakes, brackish estuaries, and coastal marshes."
+            let flamingo = animal(name: "Flamingo", description: flamingoDescription, image: flamingoImage, imageReference: nil, complete: 0, habitat: flamingoHabitat, scientificName: "Phoenicopterus ruber", status: "Least concern but making conservation areas for them is difficult because of their nomadic lifestyle.")
             data.add(a: flamingo)
             self.animals?.append(flamingo)
         }
-        
+        print("end")
         return true
     }
-
+    
 
     func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

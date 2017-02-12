@@ -19,10 +19,14 @@ class CoreDataStack {
         return NSManagedObjectModel(contentsOf: modelURL)!
     }()
     lazy var persistentStoreCoordinator: NSPersistentStoreCoordinator = {
+        
         let coordinator = NSPersistentStoreCoordinator(managedObjectModel: self.managedObjectModel)
         let url = self.applicationDocumentsDirectory.appendingPathComponent("Model.sqlite")
+        
+        let mOptions = [NSMigratePersistentStoresAutomaticallyOption: true,
+                        NSInferMappingModelAutomaticallyOption: true]
         do {
-            try coordinator.addPersistentStore(ofType: NSSQLiteStoreType, configurationName: nil, at: url, options: nil)
+            try coordinator.addPersistentStore(ofType: NSSQLiteStoreType, configurationName: nil, at: url, options: mOptions)
         } catch let  error as NSError {
             print("Ops there was an error \(error.localizedDescription)")
             abort()

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C68" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="rWS-Bc-U7C">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="rWS-Bc-U7C">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -8,7 +8,105 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Raleway-Light.ttf">
+            <string>Raleway-Light</string>
+        </array>
+    </customFonts>
     <scenes>
+        <!--Root View Controller-->
+        <scene sceneID="quJ-5h-RS4">
+            <objects>
+                <tableViewController id="IJ2-aH-LM4" customClass="newsTableViewController" customModule="sbyZoo" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="oIb-TW-NYZ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="customNewsCell" id="OVa-ai-jq8" customClass="customNewsCell" customModule="sbyZoo" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="OVa-ai-jq8" id="bzR-Fv-M8D">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wha-Bf-jxA">
+                                            <rect key="frame" x="8" y="0.0" width="325" height="43"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="nameLabel" destination="wha-Bf-jxA" id="8ep-2W-0cc"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="IJ2-aH-LM4" id="lTB-1q-ss7"/>
+                            <outlet property="delegate" destination="IJ2-aH-LM4" id="HAd-4j-cz9"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Root View Controller" id="JYH-nN-X9U"/>
+                    <connections>
+                        <segue destination="WUZ-DR-YzE" kind="show" identifier="NewsSegue" id="fMg-Rr-XXQ"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="P2m-PV-Zcc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-287.19999999999999" y="-656.22188905547227"/>
+        </scene>
+        <!--News Information View Contoller-->
+        <scene sceneID="ZWv-i4-iP9">
+            <objects>
+                <viewController id="WUZ-DR-YzE" customClass="newsInformationViewContoller" customModule="sbyZoo" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="x9X-j2-EuM"/>
+                        <viewControllerLayoutGuide type="bottom" id="XSp-af-vaM"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="rob-JN-9Uh">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="t6G-d6-VxP">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="t6G-d6-VxP" secondAttribute="trailing" id="4cZ-VP-vb1"/>
+                            <constraint firstItem="t6G-d6-VxP" firstAttribute="leading" secondItem="rob-JN-9Uh" secondAttribute="leading" id="GBa-qG-NUY"/>
+                            <constraint firstAttribute="bottom" secondItem="t6G-d6-VxP" secondAttribute="bottom" id="QHE-hQ-N2N"/>
+                            <constraint firstItem="t6G-d6-VxP" firstAttribute="top" secondItem="rob-JN-9Uh" secondAttribute="top" id="jN9-2j-2ZL"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="scrollView" destination="t6G-d6-VxP" id="dGB-ub-mbT"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="33J-f2-rVO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="568.79999999999995" y="-656.22188905547227"/>
+        </scene>
+        <!--news-->
+        <scene sceneID="lJy-ig-Qgm">
+            <objects>
+                <navigationController title="news" id="y7Y-UN-77S" customClass="newsNavigationController" customModule="sbyZoo" customModuleProvider="target" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="" image="news" id="JFH-nG-xfi"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="TpT-t5-hV8">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="IJ2-aH-LM4" kind="relationship" relationship="rootViewController" id="HVq-TF-0mr"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5hm-le-vIQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1169" y="-656"/>
+        </scene>
         <!--web-->
         <scene sceneID="ytF-NI-7mZ">
             <objects>
@@ -36,7 +134,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rcp-LL-InS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-229.59999999999999" y="-268.51574212893553"/>
+            <point key="canvasLocation" x="-287" y="59"/>
         </scene>
         <!--Root Tab Bar Controller-->
         <scene sceneID="qRh-Vx-haw">
@@ -50,6 +148,7 @@
                     <connections>
                         <segue destination="kAe-5X-vbO" kind="relationship" relationship="viewControllers" id="fKd-nm-kzd"/>
                         <segue destination="Dfu-f2-Rdw" kind="relationship" relationship="viewControllers" id="jRw-4Q-ap2"/>
+                        <segue destination="y7Y-UN-77S" kind="relationship" relationship="viewControllers" id="AbZ-JI-7qk"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8gJ-mD-IoA" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -78,7 +177,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bO9-Yq-Tnn">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -105,6 +204,7 @@
                     <connections>
                         <segue destination="tV7-RC-bHH" kind="show" identifier="AnimalSegue" id="eYa-lf-d8b"/>
                         <segue destination="iEg-c4-nzW" kind="presentation" identifier="QRSegue" id="o0x-fS-cBO"/>
+                        <segue destination="5Az-oO-emU" kind="presentation" identifier="InfoSegue" id="lV1-cH-1Cb"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4n3-77-EPb" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -128,6 +228,37 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7aG-Ro-FOG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-287" y="1518"/>
+        </scene>
+        <!--Information View Controller-->
+        <scene sceneID="POI-PB-Ehw">
+            <objects>
+                <viewController id="5Az-oO-emU" customClass="informationViewController" customModule="sbyZoo" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="JYW-hy-430"/>
+                        <viewControllerLayoutGuide type="bottom" id="dow-Pk-tP2"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="2Ag-it-Qq0">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="HhA-H6-5ea">
+                                <rect key="frame" x="0.0" y="60" width="375" height="607"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <string key="text">Welcome to the Salisbury Zoo Mobile App!\n\nAs you explore the zoo you will notice QR Codes posted at different exhibits. You can collect animals by scanning these QR Codes by pressing the plus button at the top right of the home screen.\n\nNewly discovered animals will be hidden from you until you click on them. Collect as many animals as you can!</string>
+                                <fontDescription key="fontDescription" name="Raleway-Light" family="Raleway" pointSize="20"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="textView" destination="HhA-H6-5ea" id="rGM-vu-jrO"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ilp-Yr-bQw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="568.79999999999995" y="1517.9910044977512"/>
         </scene>
         <!--Animal Information View Controller-->
         <scene sceneID="bge-uJ-IHy">
@@ -182,6 +313,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="news" width="16" height="16"/>
         <image name="paw" width="16" height="16"/>
         <image name="web" width="24" height="24"/>
     </resources>

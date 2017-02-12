@@ -64,7 +64,10 @@ class coreDataAPI {
                 let information = animalObj.value(forKey: "information") as? String
                 let imageURL = animalObj.value(forKey: "imageURL") as? String
                 let complete = animalObj.value(forKey: "complete") as! NSNumber
-                let animalObject = animal(name: name, information: information, image: nil, imageReference: imageURL, complete: complete)
+                let habitat = animalObj.value(forKey: "habitat") as? String
+                let scientificName = animalObj.value(forKey: "scientificName") as? String
+                let status = animalObj.value(forKey: "status") as? String
+                let animalObject = animal(name: name, description: information, image: nil, imageReference: imageURL, complete: complete, habitat: habitat, scientificName: scientificName, status: status)
                 arr.append(animalObject)
             }
         } catch let error as NSError {
@@ -81,7 +84,7 @@ class coreDataAPI {
         let animalEntity = NSManagedObject(entity: entity, insertInto: managedContext)
         animalEntity.setValue(a.name, forKeyPath: "name")
         
-        if let info = a.information {
+        if let info = a.description {
             animalEntity.setValue(info, forKeyPath: "information")
         }
         
@@ -89,6 +92,18 @@ class coreDataAPI {
             animalEntity.setValue(imageRef, forKeyPath: "imageURL")
         }
         animalEntity.setValue(false, forKeyPath: "complete")
+        
+        if let habitat = a.habitat {
+            animalEntity.setValue(habitat, forKey: "habitat")
+        }
+        
+        if let scientificName = a.scientificName {
+            animalEntity.setValue(scientificName, forKey: "scientificName")
+        }
+        
+        if let status = a.status {
+            animalEntity.setValue(status, forKey: "status")
+        }
         
         do {
             try managedContext.save()

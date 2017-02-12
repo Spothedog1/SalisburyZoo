@@ -17,11 +17,19 @@ class webController: UIViewController {
     }
     
     override func viewDidLoad() {
+
         print("webController has loaded.")
-        let url = URL(string: "http://mobile.salisburyzoo.org")
+        let url = URL(string: "http://salisburyzoo.org/maryland-salisbury-zoo-donate")
         let requestObj = URLRequest(url: url!);
         
         webView?.loadRequest(requestObj);
+
         super.viewDidLoad()
+//        LoadingOverlay.shared.showOverlay(view: self.view)
+//        LoadingOverlay.shared.hideOverlayView()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        UIApplication.shared.statusBarStyle = UIStatusBarStyle.default
     }
 }

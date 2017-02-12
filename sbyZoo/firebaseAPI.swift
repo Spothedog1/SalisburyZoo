@@ -55,5 +55,18 @@ class firebaseAPI {
             }
         })
     }
+    
+    //Downloads Last 10 News Articles
+    func getNews(completionHandler: @escaping ([news]) -> Void) {
+        var newsArr: [news] = []
+        self.newsDatabaseRef.observeSingleEvent(of: .value, with: {
+            (snapshot) in
+            for child in snapshot.children {
+                let newsObject = news(snapshot: child as! FIRDataSnapshot)
+                newsArr.append(newsObject)
+            }
+            completionHandler(newsArr)
+        })
+    }
 }
 

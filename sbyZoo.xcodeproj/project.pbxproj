@@ -7,10 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CC1361671E1E0F97006F9C1D /* newsNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC1361661E1E0F97006F9C1D /* newsNavigationController.swift */; };
+		CC1361691E1E0FD8006F9C1D /* newsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC1361681E1E0FD8006F9C1D /* newsTableViewController.swift */; };
+		CC13616B1E1E1029006F9C1D /* newsInformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC13616A1E1E1029006F9C1D /* newsInformationViewController.swift */; };
+		CC13616D1E1E1964006F9C1D /* customNewsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC13616C1E1E1964006F9C1D /* customNewsCell.swift */; };
+		CC13616F1E1ED373006F9C1D /* news.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC13616E1E1ED373006F9C1D /* news.swift */; };
 		CC1375671DCD0190008493E7 /* qrViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC1375661DCD0190008493E7 /* qrViewController.swift */; };
 		CC22AE2F1DB6F759009E11B8 /* rootTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC22AE2E1DB6F759009E11B8 /* rootTabBarController.swift */; };
 		CC22AE311DB6F835009E11B8 /* webController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC22AE301DB6F835009E11B8 /* webController.swift */; };
 		CC3BBC611DB9146A0056A775 /* Twiddlestix.otf in Resources */ = {isa = PBXBuildFile; fileRef = CC3BBC601DB9146A0056A775 /* Twiddlestix.otf */; };
+		CC4005911E4D3B7A0053EDD0 /* informationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC4005901E4D3B7A0053EDD0 /* informationViewController.swift */; };
 		CC41DC791E1D937800D65406 /* firebaseAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC41DC781E1D937800D65406 /* firebaseAPI.swift */; };
 		CC41DC7B1E1D938300D65406 /* coreDataAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC41DC7A1E1D938300D65406 /* coreDataAPI.swift */; };
 		CC4FC9731DB5AA2800152AC2 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CC4FC9721DB5AA2800152AC2 /* GoogleService-Info.plist */; };
@@ -22,6 +28,7 @@
 		CC8C90DF1DB5A9E300DAA3B5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CC8C90DD1DB5A9E300DAA3B5 /* Main.storyboard */; };
 		CC8C90E11DB5A9E300DAA3B5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CC8C90E01DB5A9E300DAA3B5 /* Assets.xcassets */; };
 		CC8C90E41DB5A9E300DAA3B5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CC8C90E21DB5A9E300DAA3B5 /* LaunchScreen.storyboard */; };
+		CCC7D6601E5105A000D7F48B /* Raleway-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CCC7D65F1E51055D00D7F48B /* Raleway-Light.ttf */; };
 		CCD7DF211DB7063200BB089D /* animalNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD7DF201DB7063200BB089D /* animalNavigationController.swift */; };
 		CCD7DF251DB7C7EA00BB089D /* animalTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD7DF241DB7C7EA00BB089D /* animalTableViewController.swift */; };
 		CCD7DF271DB7C8BB00BB089D /* animalInformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD7DF261DB7C8BB00BB089D /* animalInformationViewController.swift */; };
@@ -30,17 +37,24 @@
 /* Begin PBXFileReference section */
 		999600B8F127FDD7977AA2C6 /* Pods-sbyZoo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-sbyZoo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-sbyZoo/Pods-sbyZoo.debug.xcconfig"; sourceTree = "<group>"; };
 		B3473B8A5D86907BC3F1E75E /* Pods-sbyZoo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-sbyZoo.release.xcconfig"; path = "Pods/Target Support Files/Pods-sbyZoo/Pods-sbyZoo.release.xcconfig"; sourceTree = "<group>"; };
+		CC1361661E1E0F97006F9C1D /* newsNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = newsNavigationController.swift; sourceTree = "<group>"; };
+		CC1361681E1E0FD8006F9C1D /* newsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = newsTableViewController.swift; sourceTree = "<group>"; };
+		CC13616A1E1E1029006F9C1D /* newsInformationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = newsInformationViewController.swift; sourceTree = "<group>"; };
+		CC13616C1E1E1964006F9C1D /* customNewsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = customNewsCell.swift; sourceTree = "<group>"; };
+		CC13616E1E1ED373006F9C1D /* news.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = news.swift; sourceTree = "<group>"; };
 		CC1375661DCD0190008493E7 /* qrViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = qrViewController.swift; sourceTree = "<group>"; };
 		CC22AE2C1DB6BD1C009E11B8 /* sbyZoo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = sbyZoo.entitlements; sourceTree = "<group>"; };
 		CC22AE2E1DB6F759009E11B8 /* rootTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = rootTabBarController.swift; sourceTree = "<group>"; };
 		CC22AE301DB6F835009E11B8 /* webController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = webController.swift; sourceTree = "<group>"; };
 		CC3BBC601DB9146A0056A775 /* Twiddlestix.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Twiddlestix.otf; path = font/Twiddlestix.otf; sourceTree = "<group>"; };
+		CC4005901E4D3B7A0053EDD0 /* informationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = informationViewController.swift; sourceTree = "<group>"; };
 		CC41DC781E1D937800D65406 /* firebaseAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = firebaseAPI.swift; sourceTree = "<group>"; };
 		CC41DC7A1E1D938300D65406 /* coreDataAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = coreDataAPI.swift; sourceTree = "<group>"; };
-		CC4FC9721DB5AA2800152AC2 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		CC4FC9721DB5AA2800152AC2 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		CC54E5041E172DDD000FB990 /* Model 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Model 2.xcdatamodel"; sourceTree = "<group>"; };
 		CC54E5091E174275000FB990 /* CoreDataStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		CC58CE4C1DCA755E003EF551 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		CC665D491E43F77900736165 /* Model 3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Model 3.xcdatamodel"; sourceTree = "<group>"; };
 		CC7FE27C1DB7E82500CDE94B /* animal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = animal.swift; sourceTree = "<group>"; };
 		CC7FE2801DB8148E00CDE94B /* customAnimalCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = customAnimalCell.swift; sourceTree = "<group>"; };
 		CC8C90D61DB5A9E300DAA3B5 /* sbyZoo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = sbyZoo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -49,6 +63,7 @@
 		CC8C90E01DB5A9E300DAA3B5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CC8C90E31DB5A9E300DAA3B5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CC8C90E51DB5A9E300DAA3B5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CCC7D65F1E51055D00D7F48B /* Raleway-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Raleway-Light.ttf"; path = "font/Raleway-Light.ttf"; sourceTree = "<group>"; };
 		CCD7DF201DB7063200BB089D /* animalNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = animalNavigationController.swift; sourceTree = "<group>"; };
 		CCD7DF241DB7C7EA00BB089D /* animalTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = animalTableViewController.swift; sourceTree = "<group>"; };
 		CCD7DF261DB7C8BB00BB089D /* animalInformationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = animalInformationViewController.swift; sourceTree = "<group>"; };
@@ -84,12 +99,16 @@
 		CC22AE2D1DB6F737009E11B8 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				CC1361661E1E0F97006F9C1D /* newsNavigationController.swift */,
 				CC22AE2E1DB6F759009E11B8 /* rootTabBarController.swift */,
 				CC22AE301DB6F835009E11B8 /* webController.swift */,
 				CCD7DF201DB7063200BB089D /* animalNavigationController.swift */,
 				CCD7DF241DB7C7EA00BB089D /* animalTableViewController.swift */,
 				CCD7DF261DB7C8BB00BB089D /* animalInformationViewController.swift */,
 				CC1375661DCD0190008493E7 /* qrViewController.swift */,
+				CC1361681E1E0FD8006F9C1D /* newsTableViewController.swift */,
+				CC13616A1E1E1029006F9C1D /* newsInformationViewController.swift */,
+				CC4005901E4D3B7A0053EDD0 /* informationViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -124,15 +143,16 @@
 		CC8C90D81DB5A9E300DAA3B5 /* sbyZoo */ = {
 			isa = PBXGroup;
 			children = (
+				CC4FC9721DB5AA2800152AC2 /* GoogleService-Info.plist */,
 				CC41DC771E1D937000D65406 /* Data */,
 				CCD7DF281DB7CCC900BB089D /* Models */,
 				CC22AE2D1DB6F737009E11B8 /* Controllers */,
 				CC22AE2C1DB6BD1C009E11B8 /* sbyZoo.entitlements */,
-				CC4FC9721DB5AA2800152AC2 /* GoogleService-Info.plist */,
 				CC8C90D91DB5A9E300DAA3B5 /* AppDelegate.swift */,
 				CC58CE4B1DCA755E003EF551 /* Model.xcdatamodeld */,
 				CC8C90DD1DB5A9E300DAA3B5 /* Main.storyboard */,
 				CC8C90E01DB5A9E300DAA3B5 /* Assets.xcassets */,
+				CCC7D65F1E51055D00D7F48B /* Raleway-Light.ttf */,
 				CC3BBC601DB9146A0056A775 /* Twiddlestix.otf */,
 				CC8C90E21DB5A9E300DAA3B5 /* LaunchScreen.storyboard */,
 				CC8C90E51DB5A9E300DAA3B5 /* Info.plist */,
@@ -146,6 +166,8 @@
 			children = (
 				CC7FE27C1DB7E82500CDE94B /* animal.swift */,
 				CC7FE2801DB8148E00CDE94B /* customAnimalCell.swift */,
+				CC13616C1E1E1964006F9C1D /* customNewsCell.swift */,
+				CC13616E1E1ED373006F9C1D /* news.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -218,6 +240,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CCC7D6601E5105A000D7F48B /* Raleway-Light.ttf in Resources */,
 				CC8C90E41DB5A9E300DAA3B5 /* LaunchScreen.storyboard in Resources */,
 				CC4FC9731DB5AA2800152AC2 /* GoogleService-Info.plist in Resources */,
 				CC3BBC611DB9146A0056A775 /* Twiddlestix.otf in Resources */,
@@ -281,14 +304,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CC13616B1E1E1029006F9C1D /* newsInformationViewController.swift in Sources */,
 				CC22AE311DB6F835009E11B8 /* webController.swift in Sources */,
 				CC41DC791E1D937800D65406 /* firebaseAPI.swift in Sources */,
 				CC7FE2811DB8148E00CDE94B /* customAnimalCell.swift in Sources */,
 				CC8C90DA1DB5A9E300DAA3B5 /* AppDelegate.swift in Sources */,
 				CC54E50A1E174275000FB990 /* CoreDataStack.swift in Sources */,
+				CC1361691E1E0FD8006F9C1D /* newsTableViewController.swift in Sources */,
 				CCD7DF251DB7C7EA00BB089D /* animalTableViewController.swift in Sources */,
+				CC4005911E4D3B7A0053EDD0 /* informationViewController.swift in Sources */,
 				CCD7DF211DB7063200BB089D /* animalNavigationController.swift in Sources */,
+				CC13616D1E1E1964006F9C1D /* customNewsCell.swift in Sources */,
 				CC41DC7B1E1D938300D65406 /* coreDataAPI.swift in Sources */,
+				CC1361671E1E0F97006F9C1D /* newsNavigationController.swift in Sources */,
+				CC13616F1E1ED373006F9C1D /* news.swift in Sources */,
 				CC22AE2F1DB6F759009E11B8 /* rootTabBarController.swift in Sources */,
 				CCD7DF271DB7C8BB00BB089D /* animalInformationViewController.swift in Sources */,
 				CC58CE4D1DCA755E003EF551 /* Model.xcdatamodeld in Sources */,
@@ -471,10 +500,11 @@
 		CC58CE4B1DCA755E003EF551 /* Model.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				CC665D491E43F77900736165 /* Model 3.xcdatamodel */,
 				CC54E5041E172DDD000FB990 /* Model 2.xcdatamodel */,
 				CC58CE4C1DCA755E003EF551 /* Model.xcdatamodel */,
 			);
-			currentVersion = CC54E5041E172DDD000FB990 /* Model 2.xcdatamodel */;
+			currentVersion = CC665D491E43F77900736165 /* Model 3.xcdatamodel */;
 			path = Model.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

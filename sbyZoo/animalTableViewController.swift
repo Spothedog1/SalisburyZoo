@@ -42,7 +42,8 @@ class animalTableViewController: UITableViewController, addExhibitProtocol, UISe
         let leftView:UIView = UIView()
         leftView.frame = CGRect(x: 0, y: 0, width: 45, height: 45)
         leftView.addSubview(imageViewLeft)
-        let leftGestureRecognizer:UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(animalTableViewController.deleteList))
+//        let leftGestureRecognizer:UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(animalTableViewController.deleteList))
+        let leftGestureRecognizer:UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(animalTableViewController.infoModal))
         leftView.addGestureRecognizer(leftGestureRecognizer)
         let leftItem:UIBarButtonItem = UIBarButtonItem()
         leftItem.customView = leftView
@@ -88,6 +89,10 @@ class animalTableViewController: UITableViewController, addExhibitProtocol, UISe
     
     func pushProfileToCamera(){
         self.performSegue(withIdentifier: "QRSegue", sender: nil)
+    }
+    
+    func infoModal(){
+        self.performSegue(withIdentifier: "InfoSegue", sender: nil)
     }
     
     func deleteList(){
