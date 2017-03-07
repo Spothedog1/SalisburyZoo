@@ -23,7 +23,7 @@ class animalTableViewController: UITableViewController, addExhibitProtocol, UISe
         super.viewDidLoad()
 
         let imageViewRight:UIImageView = UIImageView()
-        imageViewRight.frame = CGRect(x: 25, y: 10, width: 25, height: 25)
+        imageViewRight.frame = CGRect(x: 0, y: 10, width: 25, height: 25)
         let rightImage:UIImage = UIImage(named: "qr")!
         imageViewRight.image = rightImage
         let rightView:UIView = UIView()
@@ -37,7 +37,7 @@ class animalTableViewController: UITableViewController, addExhibitProtocol, UISe
         
         let imageViewLeft:UIImageView = UIImageView()
         imageViewLeft.frame = CGRect(x:25, y:10, width: 25, height: 25)
-        let leftImage:UIImage = UIImage(named: "trash")!
+        let leftImage:UIImage = UIImage(named: "information")!
         imageViewLeft.image = leftImage
         let leftView:UIView = UIView()
         leftView.frame = CGRect(x: 0, y: 0, width: 45, height: 45)
