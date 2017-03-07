@@ -8,5 +8,11 @@ Also view the latest Zoo news and events!
 Scan some QR Codes Here.
 
 ![alt tag](https://github.com/Spothedog1/SalisburyZoo/blob/master/qr1.png)
+
+
+
 ![alt tag](https://github.com/Spothedog1/SalisburyZoo/blob/master/qr2.png)
+
+
+
 ![alt tag](https://github.com/Spothedog1/SalisburyZoo/blob/master/qr3.png)
