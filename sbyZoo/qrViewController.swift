@@ -40,11 +40,12 @@ class qrViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate
                 if (exists){
                     print("Already Added")
                 } else {
+                    self.delegate?.addExhibit(animals: animals)
                     coreData.add(a: animal)
                     count += 1
                 }
             }
-            self.delegate?.addExhibit(animals: animals)
+            
             
             let label = UILabel(frame: UIScreen.main.bounds)
             label.center = CGPoint(x: UIScreen.main.bounds.width/2, y: UIScreen.main.bounds.height/2)
@@ -55,6 +56,8 @@ class qrViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate
             
             if (count == 1){
                 label.text = "\(count) Animal Added"
+            } else if (count == 0) {
+                label.text = "Already Added"
             } else {
                 label.text = "\(count) Animals Added"
             }
@@ -89,7 +92,7 @@ class qrViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate
         
         let x = width/2 - 50
         let y = height/2 - 20
-        let button = UIButton(frame: CGRect(x: x, y: y, width: 100, height: 50))
+        let button = UIButton(frame: CGRect(x: x, y: 0, width: 100, height: height))
         button.backgroundColor = greenColor
         button.setTitle("Cancel", for: .normal)
         button.titleLabel!.font = UIFont(name: "Twiddlestix", size: 20)

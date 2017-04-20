@@ -15,10 +15,14 @@
 		CC1375671DCD0190008493E7 /* qrViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC1375661DCD0190008493E7 /* qrViewController.swift */; };
 		CC22AE2F1DB6F759009E11B8 /* rootTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC22AE2E1DB6F759009E11B8 /* rootTabBarController.swift */; };
 		CC22AE311DB6F835009E11B8 /* webController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC22AE301DB6F835009E11B8 /* webController.swift */; };
+		CC39817E1EA869A700BD3F43 /* pageThreeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC39817D1EA869A700BD3F43 /* pageThreeController.swift */; };
+		CC3981801EA86ED100BD3F43 /* pageOneController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC39817F1EA86ED100BD3F43 /* pageOneController.swift */; };
+		CC3981821EA86EEE00BD3F43 /* pageTwoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC3981811EA86EEE00BD3F43 /* pageTwoController.swift */; };
 		CC3BBC611DB9146A0056A775 /* Twiddlestix.otf in Resources */ = {isa = PBXBuildFile; fileRef = CC3BBC601DB9146A0056A775 /* Twiddlestix.otf */; };
 		CC4005911E4D3B7A0053EDD0 /* informationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC4005901E4D3B7A0053EDD0 /* informationViewController.swift */; };
 		CC41DC791E1D937800D65406 /* firebaseAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC41DC781E1D937800D65406 /* firebaseAPI.swift */; };
 		CC41DC7B1E1D938300D65406 /* coreDataAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC41DC7A1E1D938300D65406 /* coreDataAPI.swift */; };
+		CC41F2791EA9324C009E8060 /* requestPermissionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC41F2781EA9324C009E8060 /* requestPermissionViewController.swift */; };
 		CC4FC9731DB5AA2800152AC2 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CC4FC9721DB5AA2800152AC2 /* GoogleService-Info.plist */; };
 		CC54E50A1E174275000FB990 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC54E5091E174275000FB990 /* CoreDataStack.swift */; };
 		CC58CE4D1DCA755E003EF551 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CC58CE4B1DCA755E003EF551 /* Model.xcdatamodeld */; };
@@ -28,6 +32,8 @@
 		CC8C90DF1DB5A9E300DAA3B5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CC8C90DD1DB5A9E300DAA3B5 /* Main.storyboard */; };
 		CC8C90E11DB5A9E300DAA3B5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CC8C90E01DB5A9E300DAA3B5 /* Assets.xcassets */; };
 		CC8C90E41DB5A9E300DAA3B5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CC8C90E21DB5A9E300DAA3B5 /* LaunchScreen.storyboard */; };
+		CC9190A41EA84B7100035AF1 /* customTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC9190A31EA84B7100035AF1 /* customTabBar.swift */; };
+		CCC5BD921EA8592900936324 /* pageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCC5BD911EA8592900936324 /* pageViewController.swift */; };
 		CCC7D6601E5105A000D7F48B /* Raleway-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CCC7D65F1E51055D00D7F48B /* Raleway-Light.ttf */; };
 		CCD7DF211DB7063200BB089D /* animalNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD7DF201DB7063200BB089D /* animalNavigationController.swift */; };
 		CCD7DF251DB7C7EA00BB089D /* animalTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD7DF241DB7C7EA00BB089D /* animalTableViewController.swift */; };
@@ -46,10 +52,14 @@
 		CC22AE2C1DB6BD1C009E11B8 /* sbyZoo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = sbyZoo.entitlements; sourceTree = "<group>"; };
 		CC22AE2E1DB6F759009E11B8 /* rootTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = rootTabBarController.swift; sourceTree = "<group>"; };
 		CC22AE301DB6F835009E11B8 /* webController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = webController.swift; sourceTree = "<group>"; };
+		CC39817D1EA869A700BD3F43 /* pageThreeController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = pageThreeController.swift; sourceTree = "<group>"; };
+		CC39817F1EA86ED100BD3F43 /* pageOneController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = pageOneController.swift; sourceTree = "<group>"; };
+		CC3981811EA86EEE00BD3F43 /* pageTwoController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = pageTwoController.swift; sourceTree = "<group>"; };
 		CC3BBC601DB9146A0056A775 /* Twiddlestix.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Twiddlestix.otf; path = font/Twiddlestix.otf; sourceTree = "<group>"; };
 		CC4005901E4D3B7A0053EDD0 /* informationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = informationViewController.swift; sourceTree = "<group>"; };
 		CC41DC781E1D937800D65406 /* firebaseAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = firebaseAPI.swift; sourceTree = "<group>"; };
 		CC41DC7A1E1D938300D65406 /* coreDataAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = coreDataAPI.swift; sourceTree = "<group>"; };
+		CC41F2781EA9324C009E8060 /* requestPermissionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = requestPermissionViewController.swift; sourceTree = "<group>"; };
 		CC4FC9721DB5AA2800152AC2 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		CC54E5041E172DDD000FB990 /* Model 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Model 2.xcdatamodel"; sourceTree = "<group>"; };
 		CC54E5091E174275000FB990 /* CoreDataStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
@@ -63,6 +73,8 @@
 		CC8C90E01DB5A9E300DAA3B5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CC8C90E31DB5A9E300DAA3B5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CC8C90E51DB5A9E300DAA3B5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CC9190A31EA84B7100035AF1 /* customTabBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = customTabBar.swift; sourceTree = "<group>"; };
+		CCC5BD911EA8592900936324 /* pageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = pageViewController.swift; sourceTree = "<group>"; };
 		CCC7D65F1E51055D00D7F48B /* Raleway-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Raleway-Light.ttf"; path = "font/Raleway-Light.ttf"; sourceTree = "<group>"; };
 		CCD7DF201DB7063200BB089D /* animalNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = animalNavigationController.swift; sourceTree = "<group>"; };
 		CCD7DF241DB7C7EA00BB089D /* animalTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = animalTableViewController.swift; sourceTree = "<group>"; };
@@ -109,6 +121,11 @@
 				CC1361681E1E0FD8006F9C1D /* newsTableViewController.swift */,
 				CC13616A1E1E1029006F9C1D /* newsInformationViewController.swift */,
 				CC4005901E4D3B7A0053EDD0 /* informationViewController.swift */,
+				CCC5BD911EA8592900936324 /* pageViewController.swift */,
+				CC39817D1EA869A700BD3F43 /* pageThreeController.swift */,
+				CC39817F1EA86ED100BD3F43 /* pageOneController.swift */,
+				CC3981811EA86EEE00BD3F43 /* pageTwoController.swift */,
+				CC41F2781EA9324C009E8060 /* requestPermissionViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -168,6 +185,7 @@
 				CC7FE2801DB8148E00CDE94B /* customAnimalCell.swift */,
 				CC13616C1E1E1964006F9C1D /* customNewsCell.swift */,
 				CC13616E1E1ED373006F9C1D /* news.swift */,
+				CC9190A31EA84B7100035AF1 /* customTabBar.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -304,6 +322,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CC41F2791EA9324C009E8060 /* requestPermissionViewController.swift in Sources */,
 				CC13616B1E1E1029006F9C1D /* newsInformationViewController.swift in Sources */,
 				CC22AE311DB6F835009E11B8 /* webController.swift in Sources */,
 				CC41DC791E1D937800D65406 /* firebaseAPI.swift in Sources */,
@@ -313,6 +332,8 @@
 				CC1361691E1E0FD8006F9C1D /* newsTableViewController.swift in Sources */,
 				CCD7DF251DB7C7EA00BB089D /* animalTableViewController.swift in Sources */,
 				CC4005911E4D3B7A0053EDD0 /* informationViewController.swift in Sources */,
+				CC3981801EA86ED100BD3F43 /* pageOneController.swift in Sources */,
+				CC39817E1EA869A700BD3F43 /* pageThreeController.swift in Sources */,
 				CCD7DF211DB7063200BB089D /* animalNavigationController.swift in Sources */,
 				CC13616D1E1E1964006F9C1D /* customNewsCell.swift in Sources */,
 				CC41DC7B1E1D938300D65406 /* coreDataAPI.swift in Sources */,
@@ -320,7 +341,10 @@
 				CC13616F1E1ED373006F9C1D /* news.swift in Sources */,
 				CC22AE2F1DB6F759009E11B8 /* rootTabBarController.swift in Sources */,
 				CCD7DF271DB7C8BB00BB089D /* animalInformationViewController.swift in Sources */,
+				CC9190A41EA84B7100035AF1 /* customTabBar.swift in Sources */,
+				CCC5BD921EA8592900936324 /* pageViewController.swift in Sources */,
 				CC58CE4D1DCA755E003EF551 /* Model.xcdatamodeld in Sources */,
+				CC3981821EA86EEE00BD3F43 /* pageTwoController.swift in Sources */,
 				CC7FE27D1DB7E82500CDE94B /* animal.swift in Sources */,
 				CC1375671DCD0190008493E7 /* qrViewController.swift in Sources */,
 			);
@@ -448,12 +472,15 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = sbyZoo/sbyZoo.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = NGGRAD9ZX4;
 				INFOPLIST_FILE = sbyZoo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Ron.sbyZoo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -464,12 +491,15 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = sbyZoo/sbyZoo.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = NGGRAD9ZX4;
 				INFOPLIST_FILE = sbyZoo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Ron.sbyZoo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

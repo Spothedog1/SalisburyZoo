@@ -16,6 +16,8 @@ class customAnimalCell: UITableViewCell {
         self.nameLabel.textColor = UIColor.white
         self.nameLabel.font = UIFont(name: "Twiddlestix", size: 20)
         self.nameLabel.backgroundColor = UIColor.lightGray.withAlphaComponent(0.75)
+        self.nameLabel.lineBreakMode = .byWordWrapping
+        self.nameLabel.numberOfLines = 0
         
         self.selectionStyle = UITableViewCellSelectionStyle.none
     }

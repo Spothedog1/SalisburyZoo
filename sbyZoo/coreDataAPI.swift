@@ -41,6 +41,7 @@ class coreDataAPI {
         
         do {
             let animals: [NSManagedObject] = try managedContext.fetch(fetchRequest)
+            print(animals)
             if (animals.count == 1){
                 return true
             }

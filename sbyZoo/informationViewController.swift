@@ -45,7 +45,7 @@ class informationViewController: UIViewController {
         
         let x = width/2 - 50
         let y = height/2 - 20
-        let button = UIButton(frame: CGRect(x: x, y: y, width: 100, height: 50))
+        let button = UIButton(frame: CGRect(x: x, y: 0, width: 100, height: height))
         button.backgroundColor = greenColor
         button.setTitle("Back", for: .normal)
         button.titleLabel!.font = UIFont(name: "Twiddlestix", size: 20)

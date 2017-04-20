@@ -14,5 +14,9 @@ class rootTabBarController: UITabBarController {
         UITabBar.appearance().tintColor = color
         UITabBar.appearance().backgroundColor = UIColor.white
         super.viewDidLoad()
+        
+        self.selectedIndex = 1
     }
+
+    
 }

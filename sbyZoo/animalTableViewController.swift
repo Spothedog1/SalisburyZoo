@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import AVFoundation
 
 class animalTableViewController: UITableViewController, addExhibitProtocol, UISearchResultsUpdating {
     var exhibitName: String?
@@ -88,7 +89,18 @@ class animalTableViewController: UITableViewController, addExhibitProtocol, UISe
     }
     
     func pushProfileToCamera(){
-        self.performSegue(withIdentifier: "QRSegue", sender: nil)
+        if AVCaptureDevice.authorizationStatus(forMediaType: AVMediaTypeVideo) ==  AVAuthorizationStatus.authorized {
+            self.performSegue(withIdentifier: "QRSegue", sender: nil)
+        } else {
+            AVCaptureDevice.requestAccess(forMediaType: AVMediaTypeVideo, completionHandler: { (granted :Bool) -> Void in
+                if granted == true {
+                    self.performSegue(withIdentifier: "QRSegue", sender: nil)
+                } else {
+                    self.performSegue(withIdentifier: "CameraRequestSegue", sender: nil)
+                }
+            });
+        }
+
     }
     
     func infoModal(){
